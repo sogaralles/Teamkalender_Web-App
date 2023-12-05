@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './account/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CalenderComponent } from './calender/calender.component';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { DailyAppointmentComponent } from './daily-appointment/daily-appointment.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './account/register/register.component';
+import { FakeBackendComponent } from './fake-backend/fake-backend.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { RegisterComponent } from './register/register.component';
     CalenderComponent,
     CreateAppointmentComponent,
     DailyAppointmentComponent,
-    RegisterComponent
+    RegisterComponent,
+    FakeBackendComponent
   ],
   imports: [
     BrowserModule,
