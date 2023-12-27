@@ -7,7 +7,7 @@ WORKDIR /usr/local/app
 # Add source code
 COPY ./ /usr/local/app
 # Install all dependencies
-RUN npm install
+RUN npm install --force
 # Generate build
 RUN npm run build
 # Output
@@ -18,7 +18,7 @@ RUN npm run build
 # Use official nginx image as base image
 FROM nginx:latest
 # Copy build output to replace default nginx contents
-COPY --from=build /usr/local/app/dist/team-kalender /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/teamkalender_web-app /usr/share/nginx/html
 # Expose port
 EXPOSE 80
 

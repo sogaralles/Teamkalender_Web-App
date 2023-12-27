@@ -3,18 +3,35 @@
 <app-footer></app-footer>-->
 
 <nav class="navbar navbar-expand navbar-dark bg-dark px-3">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" routerLink="/account/login">Login</a>
-        <a class="nav-item nav-link" routerLink="/account/register">Register</a>
-        <a class="nav-item nav-link" routerLink="/daily-appointment">daily-appointment</a>
-        <a class="nav-item nav-link" routerLink="/create-appointment">create-appointment</a>
-        <a class="nav-item nav-link" routerLink="/calender">calender</a>
-    </div>
+  <div class="navbar-nav">
+    <!--<a class="nav-item nav-link" routerLink="/account/login">Login </a>-->
+    <a class="nav-item nav-link" routerLink="/" routerLinkActive="active"
+      >Home
+    </a>
+
+    <!--<a class="nav-item nav-link" routerLink="/account/register">Register</a>-->
+    <a
+      class="nav-item nav-link"
+      routerLink="/daily-appointment"
+      routerLinkActive="active"
+      >daily-appointment
+    </a>
+    <a
+      class="nav-item nav-link"
+      routerLink="/create-appointment"
+      routerLinkActive="active"
+      >create-appointment
+    </a>
+    <a
+      class="nav-item nav-link"
+      routerLink="/calender"
+      routerLinkActive="active"
+      >calender
+    </a>
+  </div>
 </nav>
 
 <!-- main app container -->
 <div class="container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
-

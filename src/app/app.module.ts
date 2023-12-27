@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +12,24 @@ import { CalenderComponent } from './calender/calender.component';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { DailyAppointmentComponent } from './daily-appointment/daily-appointment.component';
 import { RegisterComponent } from './account/register/register.component';
-import { FakeBackendComponent } from './fake-backend/fake-backend.component';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+
+function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
+    keycloak.init({
+      config: {
+        url: 'http://localhost:8080/auth',
+        realm: 'teamkalender-realm',
+        clientId: 'my-client'
+      },
+      initOptions: {
+        onLoad: 'check-sso',
+        silentCheckSsoRedirectUri:
+          window.location.origin + '/assets/silent-check-sso.html'
+      },
+      loadUserProfileAtStartUp: true
+    });
+}
 
 
 @NgModule({
@@ -27,13 +44,20 @@ import { FakeBackendComponent } from './fake-backend/fake-backend.component';
     CreateAppointmentComponent,
     DailyAppointmentComponent,
     RegisterComponent,
-    FakeBackendComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    KeycloakAngularModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

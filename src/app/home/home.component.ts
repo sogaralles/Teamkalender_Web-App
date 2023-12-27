@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
+  }
+
+  public username() : string{
+    return this.keycloakService.getUsername();
+  }
+
+  public logout(){
+    this.keycloakService.logout(); //as parameter a url can be placed to be redirected to a public website
   }
 
 }
