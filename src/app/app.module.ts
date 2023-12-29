@@ -18,10 +18,10 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://172.30.104.80:10001/auth',
-        //url: 'http://localhost:8080/auth',
+        //url: 'http://172.30.104.80:10001/auth',
+        url: 'http://localhost:8080/auth',
         realm: 'teamkalender-realm',
-        clientId: 'my-client'
+        clientId: 'teamkalender_client'
       },
       initOptions: {
         onLoad: 'check-sso',
