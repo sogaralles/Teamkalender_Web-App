@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-appointment',
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-appointment.component.scss']
 })
 export class CreateAppointmentComponent implements OnInit {
+  selectedDate: any;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      if (params['date']) {
+        this.selectedDate = new Date(params['date']);
+      }
+    });
+  }
 
   ngOnInit(): void {
   }
