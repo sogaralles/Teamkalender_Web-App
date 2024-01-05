@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const sqlite = require('sqlite3').verbose();
+const cors = require('cors');
 
 const db = new sqlite.Database('./events.db', (err) => {
     if (err) {
@@ -16,6 +17,7 @@ db.serialize(() => {
 });
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.post('/events', (req, res) => {
     const { date, teamEvent, matter } = req.body;

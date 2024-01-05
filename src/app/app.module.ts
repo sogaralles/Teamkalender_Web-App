@@ -13,6 +13,8 @@ import { CreateAppointmentComponent } from './create-appointment/create-appointm
 import { DailyAppointmentComponent } from './daily-appointment/daily-appointment.component';
 import { RegisterComponent } from './account/register/register.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -49,7 +51,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     {

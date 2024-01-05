@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-calender',
@@ -18,8 +19,9 @@ export class CalenderComponent implements OnInit {
     'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli',
     'August', 'September', 'Oktober', 'November', 'Dezember'
   ];
+  events: any[] = [];
 
-  constructor(private keycloakService: KeycloakService, private router: Router) {
+  constructor(private keycloakService: KeycloakService, private router: Router, private http: HttpClient) {
     const currentDate = new Date();
     this.currentYear = currentDate.getFullYear();
     this.currentMonth = currentDate.getMonth() + 1;
@@ -27,6 +29,7 @@ export class CalenderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   this.getEvents();
   }
 
   public logout() {
@@ -110,5 +113,14 @@ export class CalenderComponent implements OnInit {
     return weekNumbers;
   }
 
+  getEvents() {
+    this.http.get<any[]>('http://localhost:3000/events').subscribe((data) => {
+      this.events = data;
+      this.logEvents();
+    });
+  }
 
+  logEvents() {
+    console.log('Events:', this.events);
+  }
 }
