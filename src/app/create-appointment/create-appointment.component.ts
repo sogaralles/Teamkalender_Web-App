@@ -9,10 +9,14 @@ import { CalenderComponent } from '../calender/calender.component';
   styleUrls: ['./create-appointment.component.scss']
 })
 export class CreateAppointmentComponent implements OnInit {
+  //TODO: anpassen für DB => von, bis, prio, Kommentar
   selectedDate: any;
   dateValue: string = '';
   teamEventValue: number = 0;
+  startTimeValue: string = '';
+  endTimeValue: string = '';
   matterValue: string = '';
+  commentValue: string = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     this.route.queryParams.subscribe(params => {
@@ -28,9 +32,14 @@ export class CreateAppointmentComponent implements OnInit {
 
   sendPostRequest() {
     const postData = {
+       //TODO: anpassen für DB => von, bis, prio, Kommentar
       date: this.dateValue,
       teamEvent: this.teamEventValue,
-      matter: this.matterValue
+      startTime: this.startTimeValue,
+      endTime: this.endTimeValue,
+      matter: this.matterValue,
+      comment: this.commentValue
+
     };
 
     this.http.post('http://localhost:3000/events', postData)

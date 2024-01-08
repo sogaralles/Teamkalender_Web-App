@@ -5,11 +5,14 @@ const db = new sqlite.Database('./events.db', sqlite.OPEN_READWRITE, (err) => {
 });
 
 const createTableQuery = `
-    CREATE TABLE IF NOT EXISTS quote (
+    CREATE TABLE IF NOT EXISTS events (
         ID INTEGER PRIMARY KEY,
         date TEXT,
         teamEvent BOOLEAN,
-        matter TEXT
+        startTime TEXT,
+        endTime TEXT,
+        matter TEXT,
+        comment TEXT
     )
 `;
 

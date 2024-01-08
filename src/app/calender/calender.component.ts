@@ -95,7 +95,7 @@ export class CalenderComponent implements OnInit {
   }
 
   getWeekNumbers(year: number, month: number): number[] {
-
+    //TODO: anpassen zu Kalenderwochen => zählt hoch, bis zum Jahresende, nicht monatlich
     const daysInMonth = new Date(year, month, 0).getDate();
     let weekNumber = 1;
     const weekNumbers: number[] = [];
@@ -122,7 +122,7 @@ export class CalenderComponent implements OnInit {
   getEvents() {
     this.http.get<any>('http://localhost:3000/events').subscribe(
       (response) => {
-        this.events = response.data; // Ändere 'data' zu dem Schlüssel, der das Ereignisarray enthält
+        this.events = response.data;
         this.logEvents();
       },
       (error) => {
