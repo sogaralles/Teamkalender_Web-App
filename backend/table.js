@@ -11,6 +11,7 @@ const createTableQuery = `
         teamEvent BOOLEAN,
         startTime TEXT,
         endTime TEXT,
+        priority INTEGER,
         matter TEXT,
         comment TEXT
     )

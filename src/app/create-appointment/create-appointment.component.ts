@@ -9,12 +9,12 @@ import { CalenderComponent } from '../calender/calender.component';
   styleUrls: ['./create-appointment.component.scss']
 })
 export class CreateAppointmentComponent implements OnInit {
-  //TODO: anpassen für DB => von, bis, prio, Kommentar
   selectedDate: any;
   dateValue: string = '';
   teamEventValue: number = 0;
   startTimeValue: string = '';
   endTimeValue: string = '';
+  priorityValue: number = 0;
   matterValue: string = '';
   commentValue: string = '';
 
@@ -32,11 +32,11 @@ export class CreateAppointmentComponent implements OnInit {
 
   sendPostRequest() {
     const postData = {
-       //TODO: anpassen für DB => von, bis, prio, Kommentar
       date: this.dateValue,
       teamEvent: this.teamEventValue,
       startTime: this.startTimeValue,
       endTime: this.endTimeValue,
+      priority: this.priorityValue,
       matter: this.matterValue,
       comment: this.commentValue
 
