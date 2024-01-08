@@ -29,7 +29,7 @@ export class CalenderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.getEvents();
+    this.getEvents();
   }
 
   public logout() {
@@ -113,12 +113,41 @@ export class CalenderComponent implements OnInit {
     return weekNumbers;
   }
 
-  getEvents() {
+  /*getEvents() { //funktioniert 05.01.24
     this.http.get<any[]>('http://localhost:3000/events').subscribe((data) => {
       this.events = data;
       this.logEvents();
     });
+  }*/
+  getEvents() {
+    this.http.get<any>('http://localhost:3000/events').subscribe(
+      (response) => {
+        this.events = response.data; // Ändere 'data' zu dem Schlüssel, der das Ereignisarray enthält
+        this.logEvents();
+      },
+      (error) => {
+        console.error('Error fetching events:', error);
+      }
+    );
   }
+
+  hasEventsOnDay(day: Date | null): boolean {
+    if (day instanceof Date) {
+      const year = day.getFullYear();
+      const month = (day.getMonth() + 1).toString().padStart(2, '0');
+      const date = day.getDate().toString().padStart(2, '0');
+      const dayStr = `${date}.${month}.${year}`;
+      return this.events.some((event: any) => {
+        if (event.date) {
+          const eventDateStr = event.date.split(' ')[0];
+          return eventDateStr === dayStr;
+        }
+        return false;
+      });
+    }
+    return false;
+  }
+
 
   logEvents() {
     console.log('Events:', this.events);

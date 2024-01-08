@@ -179,7 +179,7 @@
             </div>
         </div>
 
-        <p>Das ausgewählte Datum: {{ selectedDate | date: 'dd.MM.yyyy' }}</p>
+        <p>Das ausgewählte Datum: {{ selectedDate }}</p>
         <!-- Unnamed (Checkbox) -->
         <div id="u109" class="ax_default checkbox">
             <label id="u109_input_label" for="u109_input" style="position: absolute; left: 0px;">
@@ -192,10 +192,10 @@
         </div>
 
         <input type="text" [(ngModel)]="dateValue" placeholder="Date">
-<input type="number" [(ngModel)]="teamEventValue" placeholder="Team Event">
-<input type="text" [(ngModel)]="matterValue" placeholder="Matter">
+        <input type="number" [(ngModel)]="teamEventValue" placeholder="Team Event">
+        <input type="text" [(ngModel)]="matterValue" placeholder="Matter">
 
-<button (click)="sendPostRequest()">Send POST Request</button>
+        <button (click)="sendPostRequest()">Send POST Request</button>
     </div>
     <script src="resources/scripts/axure/ios.js"></script>
 </body>

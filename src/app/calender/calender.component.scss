@@ -65,6 +65,12 @@ body {
   text-align: center;
 }
 
+.has-events {
+  background-color: red; /* Hintergrundfarbe für Tage mit Ereignissen */
+  color: white; /* Textfarbe für bessere Sichtbarkeit */
+  /* Andere Stilanpassungen nach Bedarf */
+}
+
 #base {
   position: absolute;
   z-index: 0;
