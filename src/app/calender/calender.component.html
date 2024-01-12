@@ -76,7 +76,7 @@
                 <div class="calendar-row">
                     <div class="week-numbers">{{ getWeekNumbers(currentYear, currentMonth)[i] }}</div>
                     <button *ngFor="let day of chunk" class="calendar-day"
-                        [routerLink]="day ? ['/create-appointment', day] : null" (click)="day ? onDayClick(day) : null" [ngClass]="{ 'has-events': hasEventsOnDay(day) }">
+                        [routerLink]="day ? ['/daily-appointment', day] : null" (click)="day ? onDayClick(day) : null" [ngClass]="{ 'has-events': hasEventsOnDay(day) }"><!--/create-appointment-->
                         {{ day ? (day | date: 'dd') : '' }}
                     </button>
                 </div>

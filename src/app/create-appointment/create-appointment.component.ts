@@ -20,10 +20,8 @@ export class CreateAppointmentComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     this.route.queryParams.subscribe(params => {
-      if (params['date']) {
-        this.selectedDate = this.formatDate(new Date(params['date']));
-        this.dateValue = this.selectedDate;
-      }
+      this.dateValue = this.route.snapshot.queryParams['date'] || '';
+      console.log('dateValue',this.dateValue);
     });
   }
 

@@ -8,13 +8,7 @@
 <body>
     <div id="base" class="">
 
-        <!-- Unnamed (Rectangle) -->
-        <!--<div id="u87" class="ax_default heading_1">
-            <div id="u87_div" class=""></div>
-            <div id="u87_text" class="text ">
-                <p><span>Team Termin erstellen</span></p>
-            </div>
-        </div>-->
+
 
         <!-- Unnamed (Rectangle) -->
         <div id="u88" class="ax_default box_1">
@@ -163,7 +157,7 @@
         <div id="u107" class="ax_default button">
             <div id="u107_div" class=""></div>
             <div id="u107_text" class="text ">
-                <p><button class="nav-item nav-link" routerLink="/daily-appointment" routerLinkActive="active">Termin
+                <p><button class="nav-item nav-link" routerLink="/calender" routerLinkActive="active">Termin
                         speichern
                     </button></p>
                 <!--TODO überlegen, ob man damit nun wieder beim kalender landet oder ob man damit bei daily-appointment raus kommt, wo der Termin direkt mit eingetragen ist wahrscheinlicher zweiteres sinnvoller und besser-->
@@ -179,7 +173,7 @@
             </div>
         </div>
 
-        <p>Das ausgewählte Datum: {{ selectedDate }}</p>
+        <p>Das ausgewählte Datum: {{ dateValue }}</p>
         <!-- Unnamed (Checkbox) -->
         <div id="u109" class="ax_default checkbox">
             <label id="u109_input_label" for="u109_input" style="position: absolute; left: 0px;">
@@ -193,7 +187,11 @@
 
         <input type="text" [(ngModel)]="dateValue" placeholder="Date">
         <input type="number" [(ngModel)]="teamEventValue" placeholder="Team Event">
+        <input type="text" [(ngModel)]="startTimeValue" placeholder="startTime">
+        <input type="text" [(ngModel)]="endTimeValue" placeholder="endTime">
+        <input type="text" [(ngModel)]="priorityValue" placeholder="priority">
         <input type="text" [(ngModel)]="matterValue" placeholder="Matter">
+        <input type="text" [(ngModel)]="commentValue" placeholder="Comment">
 
         <button (click)="sendPostRequest()">Send POST Request</button>
     </div>

@@ -90,7 +90,7 @@ export class CalenderComponent implements OnInit {
 
   onDayClick(day: Date) {
     if (day instanceof Date) {
-      this.router.navigate(['/create-appointment'], { queryParams: { date: day.toISOString() } });
+      this.router.navigate(['/daily-appointment'], { queryParams: { date: day.toISOString() } });
     }
   }
 
@@ -113,12 +113,6 @@ export class CalenderComponent implements OnInit {
     return weekNumbers;
   }
 
-  /*getEvents() { //funktioniert 05.01.24
-    this.http.get<any[]>('http://localhost:3000/events').subscribe((data) => {
-      this.events = data;
-      this.logEvents();
-    });
-  }*/
   getEvents() {
     this.http.get<any>('http://localhost:3000/events').subscribe(
       (response) => {

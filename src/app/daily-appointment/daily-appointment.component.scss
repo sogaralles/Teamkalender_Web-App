@@ -12,6 +12,33 @@ body {
     border-color:transparent;
     background-color:transparent;
   }
+  
+  .hourly-view {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hour-row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .hour {
+    width: 60px;
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  .marked-hour {
+    background-color: #ffe6cc; 
+  }
+  
+  .appointment {
+    margin-left: 10px;
+    padding: 5px;
+    background-color: #cce5ff;
+    border-radius: 5px;
+  }
   #base {
     position:absolute;
     z-index:0;

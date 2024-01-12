@@ -6,6 +6,20 @@
 </head>
 
 <body>
+
+      <div class="hourly-view">
+        <div class="hour-row" *ngFor="let hour of hours">
+          <div class="hour">
+            <p><span>{{ hour }}</span></p>
+          </div>
+          <div class="appointment" *ngFor="let appointment of appointments">
+            <span *ngIf="isHourMarked(appointment, hour)">
+                {{ appointment.matter }} <!--{{ appointment.startTime }} - {{ appointment.endTime }}-->
+            </span>
+          </div>
+        </div>
+      </div>
+    <input type="text" [(ngModel)]="dateValue" placeholder="Date">
     <div id="base" class="">
 
         <!-- Table Repeater (Repeater) -->
@@ -779,6 +793,7 @@
                 <p><button
                     class="nav-item nav-link"
                     routerLink="/create-appointment"
+                    [queryParams]="{ date: dateValue }"
                     routerLinkActive="active"
                     >weiteren Termin erstellen
                     </button></p> <!--TODO als Button + weiterleitung-->
