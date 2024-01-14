@@ -15,6 +15,10 @@ import { RegisterComponent } from './account/register/register.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
+
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -53,7 +57,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     AppRoutingModule,
     KeycloakAngularModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
   ],
   providers: [
     {

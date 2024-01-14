@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+//import { OverlayPopupComponent } from '../overlay-popup/overlay-popup.component';
+
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 
 @Component({
   selector: 'app-daily-appointment',
@@ -11,12 +17,12 @@ export class DailyAppointmentComponent implements OnInit {
 [x: string]: any;
   dateValue: string = '';
   selectedDate: any;
-  
+  show =false;
   appointments: any[] = [];
   events: any[] = [];
   hours: string[] = [];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {  
+  constructor(private route: ActivatedRoute, private http: HttpClient,public dialog: MatDialog) {  
 
   }
 
@@ -32,6 +38,21 @@ export class DailyAppointmentComponent implements OnInit {
     this.initializeHours();
   }
 
+  openDialog() {
+    this.dialog.open(DialogDataExampleDialog, {
+      data: {
+        animal: 'panda',
+      },
+    });
+  }
+
+  openpopup(appointment: any) {
+    appointment.show = true;
+}
+
+closepopup(appointment: any) {
+    appointment.show = false;
+}
 
   formatDate(currentDate: Date): string {
     const year = currentDate.getFullYear();
@@ -44,6 +65,8 @@ export class DailyAppointmentComponent implements OnInit {
   logEvents() {
     console.log('daily-appointment_Events:', this.events);
   }
+
+
   getEvents() {
     this.http.get<any>('http://localhost:3000/events').subscribe(
       (response) => {
@@ -87,6 +110,7 @@ export class DailyAppointmentComponent implements OnInit {
     });
   }
 
+
   initializeHours() {
     for (let hour = 0; hour < 24; hour++) {
       this.hours.push(`${hour.toString().padStart(2, '0')}:00`);
@@ -97,4 +121,15 @@ export class DailyAppointmentComponent implements OnInit {
   isHourMarked(appointment: any, hour: string): boolean {
     return hour >= appointment.startTime && hour <= appointment.endTime;
   }
+
+  appointmentsForHour: (hour: string) => any[] = (hour: string) => [];
 }
+
+@Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: '../overlay-popup/overlay-popup.component.html',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+}
+

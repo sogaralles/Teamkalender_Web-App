@@ -6,6 +6,7 @@ import { DailyAppointmentComponent } from './daily-appointment/daily-appointment
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { CalenderComponent } from './calender/calender.component';
 import { KeycloakGuard } from './keycloak.guard';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [KeycloakGuard] },
