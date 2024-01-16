@@ -18,9 +18,9 @@ export class DailyAppointmentComponent implements OnInit {
   dateValue: string = '';
   selectedDate: any;
   show =false;
-  appointments: any[] = [];
+  public appointments: any[] = [];
   events: any[] = [];
-  hours: string[] = [];
+  public hours: string[] = [];
 
   constructor(private route: ActivatedRoute, private http: HttpClient,public dialog: MatDialog) {  
 
@@ -38,7 +38,7 @@ export class DailyAppointmentComponent implements OnInit {
     this.initializeHours();
   }
 
-  openDialog() {
+  public openDialog() {
     this.dialog.open(DialogDataExampleDialog, {
       data: {
         animal: 'panda',
@@ -46,11 +46,11 @@ export class DailyAppointmentComponent implements OnInit {
     });
   }
 
-  openpopup(appointment: any) {
+ public openpopup(appointment: any) {
     appointment.show = true;
 }
 
-closepopup(appointment: any) {
+public closepopup(appointment: any) {
     appointment.show = false;
 }
 
