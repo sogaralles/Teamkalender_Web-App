@@ -16,6 +16,7 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HourlyViewComponent } from './hourly-view/hourly-view.component';
 
 
 
@@ -51,6 +52,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     CreateAppointmentComponent,
     DailyAppointmentComponent,
     RegisterComponent,
+    HourlyViewComponent,
   ],
   imports: [
     BrowserModule,

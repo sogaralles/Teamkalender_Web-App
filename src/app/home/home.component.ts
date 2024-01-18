@@ -1,25 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 //import { DailyAppointmentComponent } from '../daily-appointment/daily-appointment.component';
 import { HttpClient } from '@angular/common/http';
+import { HourlyViewComponent } from '../hourly-view/hourly-view.component'; // Passe den Pfad entsprechend an
+
 
 import { Injectable } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: [
-    './home.component.scss',
-    '../daily-appointment/daily-appointment.component.scss'
+    './home.component.scss'
 
-]
+],
 })
+
 export class HomeComponent implements OnInit {
   todayAppointments: any;
-  hours: string[] = [];
-  appointments: any[] = [];
+  @Input() hours: string[] = [];
+  @Input() appointments: any[] = [];
   dateValue: string = '';
   formattedDate: any;
   events:any[] = [];
+
 
   constructor(private keycloakService: KeycloakService, private http: HttpClient) { }
 
@@ -90,8 +93,8 @@ loadAppointmentsForDay() {
   }
 }  
 
-markHoursInCalendar() {
-  this.appointments.forEach(appointment => {
+markHoursInCalendar() {//17.01.24 entf
+  /*this.appointments.forEach(appointment => {
     const appointmentStartTime = new Date(`${this.formattedDate} ${appointment.startTime}`);
     const appointmentEndTime = new Date(`${this.formattedDate} ${appointment.endTime}`);
 
@@ -101,7 +104,7 @@ markHoursInCalendar() {
         hourElement.classList.add('marked-hour');
       }
     }
-  });
+  });*/
 }
 public closepopup(appointment: any) {
     appointment.show = false;
@@ -112,3 +115,4 @@ isHourMarked(appointment: any, hour: string): boolean {
 }
   
 }
+

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 //import { OverlayPopupComponent } from '../overlay-popup/overlay-popup.component';
 
 export interface DialogData {
@@ -14,15 +14,15 @@ export interface DialogData {
   styleUrls: ['./daily-appointment.component.scss']
 })
 export class DailyAppointmentComponent implements OnInit {
-[x: string]: any;
+  [x: string]: any;
   dateValue: string = '';
   selectedDate: any;
-  show =false;
+  show = false;
   public appointments: any[] = [];
   events: any[] = [];
   public hours: string[] = [];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient,public dialog: MatDialog) {  
+  constructor(private route: ActivatedRoute, private http: HttpClient, public dialog: MatDialog) {
 
   }
 
@@ -31,7 +31,7 @@ export class DailyAppointmentComponent implements OnInit {
       if (params['date']) {
         this.selectedDate = this.formatDate(new Date(params['date']));
         this.dateValue = this.selectedDate;
-        
+
         this.getEvents();
       }
     });
@@ -46,13 +46,13 @@ export class DailyAppointmentComponent implements OnInit {
     });
   }
 
- public openpopup(appointment: any) {
+  public openpopup(appointment: any) {
     appointment.show = true;
-}
+  }
 
-public closepopup(appointment: any) {
+  public closepopup(appointment: any) {
     appointment.show = false;
-}
+  }
 
   formatDate(currentDate: Date): string {
     const year = currentDate.getFullYear();
@@ -84,7 +84,7 @@ public closepopup(appointment: any) {
   loadAppointmentsForDay() {
     if (this.events) {
       this.appointments = this.events.filter((appointment: any) => appointment.date === this.selectedDate);
-      this.markHoursInCalendar();
+      //this.markHoursInCalendar();
 
       this.appointments.forEach(appointment => {
         console.log('startTime:', appointment.startTime);
@@ -93,21 +93,23 @@ public closepopup(appointment: any) {
     } else {
       console.error('No appointments found');
     }
-  }      
-  
+  }
 
-  markHoursInCalendar() {
-    this.appointments.forEach(appointment => {
+
+  markHoursInCalendar() {//17.01.24 entf
+    /*this.appointments.forEach(appointment => {
       const appointmentStartTime = new Date(`${this.selectedDate} ${appointment.startTime}`);
       const appointmentEndTime = new Date(`${this.selectedDate} ${appointment.endTime}`);
 
       for (let hour = appointmentStartTime.getHours(); hour <= appointmentEndTime.getHours(); hour++) {
         const hourElement = document.getElementById(`${hour.toString().padStart(2, '0')}:00`);
         if (hourElement) {
-          hourElement.classList.add('marked-hour');
+          if (this.appointments.length > 0) {
+            hourElement.classList.add('marked-hour');
+          }
         }
       }
-    });
+    });*/
   }
 
 
@@ -119,6 +121,7 @@ public closepopup(appointment: any) {
 
 
   isHourMarked(appointment: any, hour: string): boolean {
+    //  return this.appointments.some(appt => hour >= appt.startTime && hour <= appt.endTime);
     return hour >= appointment.startTime && hour <= appointment.endTime;
   }
 
@@ -130,6 +133,6 @@ public closepopup(appointment: any) {
   templateUrl: '../overlay-popup/overlay-popup.component.html',
 })
 export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 }
 

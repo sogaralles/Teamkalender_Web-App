@@ -6,33 +6,7 @@
 </head>
 
 <body>
-
-    <div class="hourly-view">
-        <div class="hour-row" *ngFor="let hour of hours">
-            <div class="hour">
-                <p><span>{{ hour }}</span></p>
-            </div>
-            <div class="appointment" *ngFor="let appointment of appointments">
-                <span *ngIf="isHourMarked(appointment, hour)">
-                    <div class="wrapper">
-                        <button (click)="openpopup(appointment)">{{ appointment.matter }}</button>
-                    </div>
-                    <div class="overlay" *ngIf="appointment.show">
-                        <div class="content">
-                            <div class="close" (click)="closepopup(appointment)">
-                                &times;
-                            </div>
-                            <p>Datum:{{ appointment.date}}</p>
-                            <p>Termin Thema:{{ appointment.matter}}</p>
-                            <p>Kommentar:{{ appointment.comment}}</p>
-                            <p>Beginn:{{ appointment.startTime}}</p>
-                            <p>Ende: {{ appointment.endTime}}</p>
-                        </div>
-                    </div>
-                </span>
-            </div>
-        </div>
-    </div>
+    <app-hourly-view [hours]="hours" [appointments]="appointments"></app-hourly-view> 
     <input type="text" [(ngModel)]="dateValue" placeholder="Date">
     <div id="base" class="">
 
