@@ -40,6 +40,18 @@ body {
     border-radius: 5px;
   }
 
+  .priority-green {
+    background-color: green;
+  }
+  
+  .priority-yellow {
+    background-color: yellow;
+  }
+  
+  .priority-red {
+    background-color: red;
+  }
+
   .wrapper {
     text-align: center;
     margin-top: 20px; /* Just an example margin */

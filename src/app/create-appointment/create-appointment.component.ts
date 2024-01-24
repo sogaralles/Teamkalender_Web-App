@@ -54,4 +54,8 @@ export class CreateAppointmentComponent implements OnInit {
     const dayStr = `${date}.${month}.${year}`;
     return dayStr;
   }
+
+  setPriority(priority: number): void {
+    this.priorityValue = priority;
+  }
 }

@@ -189,7 +189,12 @@
         <input type="number" [(ngModel)]="teamEventValue" placeholder="Team Event">
         <input type="text" [(ngModel)]="startTimeValue" placeholder="startTime">
         <input type="text" [(ngModel)]="endTimeValue" placeholder="endTime">
-        <input type="text" [(ngModel)]="priorityValue" placeholder="priority">
+        <!--<input type="text" [(ngModel)]="priorityValue" placeholder="priority">-->
+        <div>
+            <button (click)="setPriority(1)" style="background-color: green;">Low</button>
+            <button (click)="setPriority(2)" style="background-color: yellow;">Medium</button>
+            <button (click)="setPriority(3)" style="background-color: red;">High</button>
+          </div>
         <input type="text" [(ngModel)]="matterValue" placeholder="Matter">
         <input type="text" [(ngModel)]="commentValue" placeholder="Comment">
 

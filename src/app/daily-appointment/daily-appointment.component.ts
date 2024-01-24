@@ -125,6 +125,19 @@ export class DailyAppointmentComponent implements OnInit {
     return hour >= appointment.startTime && hour <= appointment.endTime;
   }
 
+ /* getPriorityClass(priority: number): string {
+    switch (priority) {
+      case 1:
+        return 'priority-green';
+      case 2:
+        return 'priority-yellow';
+      case 3:
+        return 'priority-red';
+      default:
+        return '';
+    }
+  }*/
+
   appointmentsForHour: (hour: string) => any[] = (hour: string) => [];
 }
 

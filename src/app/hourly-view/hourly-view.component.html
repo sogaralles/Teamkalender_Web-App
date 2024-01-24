@@ -7,7 +7,7 @@
       <div class="appointment" *ngFor="let appointment of appointments">
         <span *ngIf="isHourMarked(appointment, hour)">
           <div class="wrapper">
-            <button (click)="openpopup(appointment)">{{ appointment.matter }}</button>
+            <button (click)="openpopup(appointment)" [ngClass]="getPriorityClass(appointment.priority)">{{ appointment.matter }}</button>
           </div>
           <div class="overlay" *ngIf="appointment.show">
             <div class="content">

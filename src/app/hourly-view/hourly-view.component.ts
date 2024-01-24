@@ -19,6 +19,18 @@ export class HourlyViewComponent implements OnInit {
   public closepopup(appointment: any) {
     appointment.show = false;
   }
+  getPriorityClass(priority: number): string {
+    switch (priority) {
+      case 1:
+        return 'priority-green';
+      case 2:
+        return 'priority-yellow';
+      case 3:
+        return 'priority-red';
+      default:
+        return '';
+    }
+  }
 
   isHourMarked(appointment: any, hour: string): boolean {
     return hour >= appointment.startTime && hour <= appointment.endTime;
