@@ -8,7 +8,7 @@
         <span *ngIf="isHourMarked(appointment, hour) && (appointment.teamEvent === 2 ||(appointment.teamEvent === 1 && isCurrentUser(appointment)))">
      
           <div class="wrapper">
-            <button (click)="openpopup(appointment)" [ngClass]="getPriorityClass(appointment.priority)">{{ appointment.matter }}</button>
+            <button (click)="openpopup(appointment)" [ngClass]="isTeamEvent(appointment.priority, appointment.teamEvent)">{{ appointment.matter }}</button>
           </div>
           <div class="overlay" *ngIf="appointment.show">
             <div class="content">

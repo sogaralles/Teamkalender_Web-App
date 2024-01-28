@@ -142,6 +142,24 @@ export class CalenderComponent implements OnInit {
     return false;
   }
 
+  /*isPublicBorder(day: Date | null): boolean {
+    // Hier implementierst du die Logik, um zu überprüfen, ob für diesen Tag ein TeamEvent vorliegt
+    // Basierend auf deiner Datenstruktur und Logik
+    //const isTeamEvent = this.isTeamEventForDay(day);
+    //const isOwnerLoggedIn = this.isOwnerLoggedInForDay(day);
+  
+    //return isTeamEvent && isOwnerLoggedIn;
+  }
+  
+  isPrivateBorder(day: Date | null): boolean {
+    // Hier implementierst du die Logik, um zu überprüfen, ob für diesen Tag ein TeamEvent vorliegt
+    // Basierend auf deiner Datenstruktur und Logik
+    //const isTeamEvent = this.isTeamEventForDay(day);
+    //const isOwnerLoggedIn = this.isOwnerLoggedInForDay(day);
+  
+    //return !isTeamEvent && isOwnerLoggedIn;
+  }*/
+
 
   logEvents() {
     console.log('Events:', this.events);

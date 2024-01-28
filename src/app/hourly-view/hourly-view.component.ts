@@ -33,6 +33,18 @@ export class HourlyViewComponent implements OnInit {
     }
   }
 
+  isTeamEvent(priority: number, teamEvent: number): string{
+    let classes = this.getPriorityClass(priority);
+
+    if (teamEvent === 1) {
+      classes += ' private-border';
+    } else if (teamEvent === 2) {
+      classes += ' public-border';
+    }
+  
+    return classes.trim();
+  }
+
   isHourMarked(appointment: any, hour: string): boolean {
     return hour >= appointment.startTime && hour <= appointment.endTime;
   }
