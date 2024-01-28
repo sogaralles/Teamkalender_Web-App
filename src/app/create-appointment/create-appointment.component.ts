@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { KeycloakService } from 'keycloak-angular';
+//import { KeycloakAdminClient } from 'keycloak-admin-client';
+import * as KeycloakAdminClient from 'keycloak-admin-client';
 import { CalenderComponent } from '../calender/calender.component';
+import { HomeComponent } from '../home';
 
 @Component({
   selector: 'app-create-appointment',
@@ -11,21 +15,27 @@ import { CalenderComponent } from '../calender/calender.component';
 export class CreateAppointmentComponent implements OnInit {
   selectedDate: any;
   dateValue: string = '';
-  teamEventValue: number = 0;
+  teamEventValue: number = 1;
   startTimeValue: string = '';
   endTimeValue: string = '';
   priorityValue: number = 0;
   matterValue: string = '';
   commentValue: string = '';
+  ownerValue: any;
+  isTeamEvent: boolean = false;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, private keycloakService: KeycloakService) {
     this.route.queryParams.subscribe(params => {
       this.dateValue = this.route.snapshot.queryParams['date'] || '';
-      console.log('dateValue',this.dateValue);
+      console.log('dateValue', this.dateValue);
     });
+    this.ownerValue=this.keycloakService.getUsername();
+    console.log('.ownerValue', this.ownerValue);
   }
 
   ngOnInit(): void {
+    this.getUSerInformation();
+    //this.getAllUsers();
   }
 
   sendPostRequest() {
@@ -36,7 +46,8 @@ export class CreateAppointmentComponent implements OnInit {
       endTime: this.endTimeValue,
       priority: this.priorityValue,
       matter: this.matterValue,
-      comment: this.commentValue
+      comment: this.commentValue,
+      owner: this.ownerValue
 
     };
 
@@ -58,4 +69,38 @@ export class CreateAppointmentComponent implements OnInit {
   setPriority(priority: number): void {
     this.priorityValue = priority;
   }
+
+  onCheckboxChange() {
+    this.teamEventValue = this.isTeamEvent ? 2 : 1;
+  }
+
+  getUSerInformation() {//Gibt alle Informnationen des aktuellen USers zurück
+    this.keycloakService.loadUserProfile().then(profile => {
+      console.log('Benutzerprofil:', profile);
+    });
+  }
+
+ /* keycloakAdmin = new KeycloakAdminClient({
+    baseUrl: 'http://localhost:8080/auth/',
+    realmName: 'teamkalender-realm',
+    clientId: 'teamkalender_client',
+    clientSecret: '823db38f-f69a-4627-99be-79d5625eb79c',
+  });
+
+  async getAllUsers() {
+    try {
+      await this.keycloakAdmin.auth({
+        username: 'admin1',
+        password: 'admin1',
+      });
+      const users = await this.keycloakAdmin.users.find();
+    console.log('Alle Benutzer:', users);
+    return users;
+  } catch (error) {
+    console.error('Fehler beim Abrufen der Benutzer:', error);
+    throw error;
+  } finally {
+    await this.keycloakAdmin.deauth();
+  }
+}*/
 }

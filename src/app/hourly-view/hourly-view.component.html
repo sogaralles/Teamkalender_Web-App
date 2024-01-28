@@ -5,7 +5,8 @@
         <p><span>{{ hour }}</span></p>
       </div>
       <div class="appointment" *ngFor="let appointment of appointments">
-        <span *ngIf="isHourMarked(appointment, hour)">
+        <span *ngIf="isHourMarked(appointment, hour) && (appointment.teamEvent === 2 ||(appointment.teamEvent === 1 && isCurrentUser(appointment)))">
+     
           <div class="wrapper">
             <button (click)="openpopup(appointment)" [ngClass]="getPriorityClass(appointment.priority)">{{ appointment.matter }}</button>
           </div>
@@ -19,6 +20,8 @@
               <p>Kommentar:{{ appointment.comment}}</p>
               <p>Beginn:{{ appointment.startTime}}</p>
               <p>Ende: {{ appointment.endTime}}</p>
+              <p>Ersteller: {{appointment.owner}}</p>
+              <p>appointment.teamEvent: {{appointment.teamEvent}}</p>
             </div>
           </div>
         </span>

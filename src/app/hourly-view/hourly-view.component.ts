@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-hourly-view',
@@ -9,7 +10,7 @@ export class HourlyViewComponent implements OnInit {
   @Input() hours: string[] = [];
   @Input() appointments: any[] = [];
 
-  constructor() { }
+  constructor(private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
   }
@@ -34,5 +35,10 @@ export class HourlyViewComponent implements OnInit {
 
   isHourMarked(appointment: any, hour: string): boolean {
     return hour >= appointment.startTime && hour <= appointment.endTime;
+  }
+
+  isCurrentUser(appointment: any): boolean {
+    const currentUsername = this.keycloakService.getUsername();
+    return appointment.owner === currentUsername;
   }
 }

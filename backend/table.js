@@ -13,7 +13,8 @@ const createTableQuery = `
         endTime TEXT,
         priority INTEGER,
         matter TEXT,
-        comment TEXT
+        comment TEXT,
+        owner TEXT
     )
 `;
 

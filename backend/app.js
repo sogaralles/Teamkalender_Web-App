@@ -13,17 +13,17 @@ const db = new sqlite.Database('./events.db', (err) => {
 });
 
 db.serialize(() => {
-    db.run('CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY, date TEXT, teamEvent BOOLEAN, startTime TEXT, endTime TEXT, priority INTEGER,  matter TEXT, comment TEXT)');
+    db.run('CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY, date TEXT, teamEvent BOOLEAN, startTime TEXT, endTime TEXT, priority INTEGER,  matter TEXT, comment TEXT, owner TEXT)');
 });
 
 app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/events', (req, res) => {
-    const { date, teamEvent, startTime, endTime, priority, matter, comment } = req.body;
+    const { date, teamEvent, startTime, endTime, priority, matter, comment, owner } = req.body;
 
     
-    if (!date || !teamEvent || !startTime || !endTime || !priority || !matter || !comment) {
+    if (!date || !teamEvent || !startTime || !endTime || !priority || !matter || !comment || !owner) {
         return res.status(400).json({
             status: 'error',
             error: 'All fields are required',
@@ -31,13 +31,13 @@ app.post('/events', (req, res) => {
     }
 
    
-    const sql = "INSERT INTO events(date, teamEvent, startTime, endTime, priority, matter, comment) VALUES (?,?,?,?,?,?,?)";
-    db.run(sql, [ date, teamEvent, startTime, endTime, priority, matter, comment], (err) => {
+    const sql = "INSERT INTO events(date, teamEvent, startTime, endTime, priority, matter, comment, owner) VALUES (?,?,?,?,?,?,?,?)";
+    db.run(sql, [ date, teamEvent, startTime, endTime, priority, matter, comment, owner], (err) => {
         if (err) {
             return res.status(500).json({ status: 500, success: false, error: err.message });
         }
 
-        console.log('Successful input',  date, teamEvent, startTime, endTime, priority, matter, comment);
+        console.log('Successful input',  date, teamEvent, startTime, endTime, priority, matter, comment, owner);
         res.status(200).json({ status: 200, success: true });
     });
 });
