@@ -125,16 +125,20 @@ export class CalenderComponent implements OnInit {
     );
   }
 
-  hasEventsOnDay(day: Date | null): boolean {
+
+  
+  hasEventsOnDay(day: Date | null, teamEvent: number): boolean {
     if (day instanceof Date) {
       const year = day.getFullYear();
       const month = (day.getMonth() + 1).toString().padStart(2, '0');
       const date = day.getDate().toString().padStart(2, '0');
       const dayStr = `${date}.${month}.${year}`;
+
       return this.events.some((event: any) => {
-        if (event.date) {
+        if (event.date && event.teamEvent === teamEvent) {
           const eventDateStr = event.date.split(' ')[0];
-          return eventDateStr === dayStr;
+          const isCurrentUserEvent = teamEvent === 1 ? this.isCurrentUser(event): true;
+          return eventDateStr === dayStr && isCurrentUserEvent;
         }
         return false;
       });
@@ -142,23 +146,11 @@ export class CalenderComponent implements OnInit {
     return false;
   }
 
-  /*isPublicBorder(day: Date | null): boolean {
-    // Hier implementierst du die Logik, um zu überprüfen, ob für diesen Tag ein TeamEvent vorliegt
-    // Basierend auf deiner Datenstruktur und Logik
-    //const isTeamEvent = this.isTeamEventForDay(day);
-    //const isOwnerLoggedIn = this.isOwnerLoggedInForDay(day);
-  
-    //return isTeamEvent && isOwnerLoggedIn;
+  isCurrentUser(appointment: any): boolean {
+    const currentUsername = this.keycloakService.getUsername();
+    return appointment.owner === currentUsername;
   }
-  
-  isPrivateBorder(day: Date | null): boolean {
-    // Hier implementierst du die Logik, um zu überprüfen, ob für diesen Tag ein TeamEvent vorliegt
-    // Basierend auf deiner Datenstruktur und Logik
-    //const isTeamEvent = this.isTeamEventForDay(day);
-    //const isOwnerLoggedIn = this.isOwnerLoggedInForDay(day);
-  
-    //return !isTeamEvent && isOwnerLoggedIn;
-  }*/
+
 
 
   logEvents() {

@@ -76,7 +76,7 @@
                 <div class="calendar-row">
                     <div class="week-numbers">{{ getWeekNumbers(currentYear, currentMonth)[i] }}</div>
                     <button *ngFor="let day of chunk" class="calendar-day"
-                        [routerLink]="day ? ['/daily-appointment', day] : null" (click)="day ? onDayClick(day) : null" [ngClass]="{ 'has-events': hasEventsOnDay(day)}"><!--/create-appointment--><!--,'public-border': isPublicBorder(day), 'private-border': isPrivateBorder(day) -->
+                        [routerLink]="day ? ['/daily-appointment', day] : null" (click)="day ? onDayClick(day) : null" [ngClass]="{ 'has-events': hasEventsOnDay(day,1) || hasEventsOnDay(day,2), 'public-border':hasEventsOnDay(day,2), 'private-border':hasEventsOnDay(day,1)}">
                         {{ day ? (day | date: 'dd') : '' }}
                     </button>
                 </div>

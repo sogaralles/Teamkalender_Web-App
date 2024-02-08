@@ -74,7 +74,8 @@ export class CreateAppointmentComponent implements OnInit {
     this.teamEventValue = this.isTeamEvent ? 2 : 1;
   }
 
-  getUSerInformation() {//Gibt alle Informnationen des aktuellen USers zurück
+  //gives all informations of current user back
+  getUSerInformation() {
     this.keycloakService.loadUserProfile().then(profile => {
       console.log('Benutzerprofil:', profile);
     });
