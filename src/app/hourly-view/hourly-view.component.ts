@@ -46,7 +46,7 @@ export class HourlyViewComponent implements OnInit {
   }
 
   isHourMarked(appointment: any, hour: string): boolean {
-    return hour >= appointment.startTime && hour <= appointment.endTime;
+    return hour >= appointment.startTime && hour < appointment.endTime;
   }
 
   isCurrentUser(appointment: any): boolean {

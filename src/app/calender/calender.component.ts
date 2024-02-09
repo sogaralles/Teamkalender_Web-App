@@ -10,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CalenderComponent implements OnInit {
 
+  backgroundColor: string = '';
 
+  isPopupOpen: boolean = false;
   days: (Date | null)[] = [];
   weekNumbers: number[] = [];
   currentYear: number;
@@ -151,6 +153,14 @@ export class CalenderComponent implements OnInit {
     return appointment.owner === currentUsername;
   }
 
+  public openpopup() {
+    console.log("isPopupOpen true");
+    this.isPopupOpen = true;
+  }
+  public closepopup() {
+    console.log("isPopupOpen false");
+    this.isPopupOpen = false;
+  }
 
 
   logEvents() {

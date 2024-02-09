@@ -38,7 +38,17 @@
         <div id="u85" class="ax_default button">
             <div id="u85_div" class=""></div>
             <div id="u85_text" class="text ">
-                <p><span>Settings</span></p>
+                <div class="wrapper">
+                    <p><button (click)="openpopup()">Settings</button></p>
+                </div>
+                <div class="overlay" *ngIf="isPopupOpen">
+                    <div class="content">
+                        <p>test</p>
+                        <div class="close" (click)="closepopup()">
+                            &times;
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -56,7 +66,7 @@
     <div class="calendar">
         <div class="calendar-header">
             <h2><button (click)="previousMonth()">
-                    <</button>
+                    < </button>
                         <h3>{{ monthNames[currentMonth - 1] }} {{ currentYear }}</h3>
                         <button (click)="nextMonth()">></button>
             </h2>
@@ -76,7 +86,8 @@
                 <div class="calendar-row">
                     <div class="week-numbers">{{ getWeekNumbers(currentYear, currentMonth)[i] }}</div>
                     <button *ngFor="let day of chunk" class="calendar-day"
-                        [routerLink]="day ? ['/daily-appointment', day] : null" (click)="day ? onDayClick(day) : null" [ngClass]="{ 'has-events': hasEventsOnDay(day,1) || hasEventsOnDay(day,2), 'public-border':hasEventsOnDay(day,2), 'private-border':hasEventsOnDay(day,1)}">
+                        [routerLink]="day ? ['/daily-appointment', day] : null" (click)="day ? onDayClick(day) : null"
+                        [ngClass]="{ 'has-events': hasEventsOnDay(day,1) || hasEventsOnDay(day,2), 'public-border':hasEventsOnDay(day,2), 'private-border':hasEventsOnDay(day,1)}">
                         {{ day ? (day | date: 'dd') : '' }}
                     </button>
                 </div>

@@ -29,7 +29,7 @@ body {
   border-bottom: 1px solid #ccc;
   position: relative;
   top: 50px;
-  z-index: 1;
+  //z-index: 1;
   width: calc(100%);
 }
 
@@ -67,7 +67,49 @@ body {
 
 .has-events {
   background-color: darkblue; 
-  color: white; 
+  color: black; 
+}
+
+.settings {
+  margin-left: 10px;
+  padding: 5px;
+  //background-color: #cce5ff;
+  border-radius: 5px;
+}
+
+.wrapper {
+  text-align: center;
+  margin-top: 20px; 
+}
+
+.content{
+  background-color: #fff;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    //font-size: 20px;
+    cursor: pointer;
 }
 
 .public-border {
@@ -81,7 +123,7 @@ body {
 }
 #base {
   position: absolute;
-  z-index: 0;
+  //z-index: 0;
 }
 
 #u82_div {
