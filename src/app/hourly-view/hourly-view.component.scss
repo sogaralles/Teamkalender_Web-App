@@ -8,11 +8,23 @@
     margin-right:auto;
     text-align:left;
   }*/
+  
   /*.form_sketch {
     border-color:transparent;
     background-color:transparent;
   }*/
-  
+  #u110 {
+    border-width:0px;
+    position:absolute;
+    left:180px;
+    top:168px;
+    width:292px;
+    height:360px;
+    background:inherit;
+    background-color:rgba(242, 242, 242, 1);
+    border:none;
+    border-radius:0px;
+  }
   /*.hourly-view {
     display: flex;
     flex-direction: column;
@@ -20,6 +32,7 @@
   
   .hour-row {
     display: flex;
+    width: 500px;
     //align-items: center;
     background-color: purple;
     border: 1px solid black;
