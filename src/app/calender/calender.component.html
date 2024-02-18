@@ -19,7 +19,7 @@
         <div id="u83" class="ax_default button">
             <div id="u83_div" class=""></div>
             <div id="u83_text" class="text ">
-                <p><button class="nav-item nav-link" routerLink="/home" routerLinkActive="active">zurück
+                <p><button class="button" routerLink="/home" routerLinkActive="active">zurück
                     </button></p>
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div id="u84" class="ax_default button">
             <div id="u84_div" class=""></div>
             <div id="u84_text" class="text ">
-                <p><button class="nav-item nav-link" routerLink="/create-appointment" routerLinkActive="active">Termin
+                <p><button class="button" routerLink="/create-appointment" routerLinkActive="active">Termin
                         erstellen
                     </button></p>
             </div>
@@ -39,7 +39,7 @@
             <div id="u85_div" class=""></div>
             <div id="u85_text" class="text ">
                 <div class="wrapper">
-                    <p><button (click)="openpopup()">Settings</button></p>
+                    <p><button class="button" (click)="openpopup()">Settings</button></p>
                 </div>
                 <div class="overlay" *ngIf="isPopupOpen">
                     <div class="content">
@@ -56,7 +56,7 @@
         <div id="u86" class="ax_default button">
             <div id="u86_div" class=""></div>
             <div id="u86_text" class="text ">
-                <p><button (click)="logout()">Logout</button></p>
+                <p><button class="button" (click)="logout()">Logout</button></p>
             </div>
         </div>
 
@@ -65,10 +65,10 @@
 
     <div class="calendar">
         <div class="calendar-header">
-            <h2><button (click)="previousMonth()">
+            <h2><button class="button" id="left_arrow" (click)="previousMonth()">
                     < </button>
-                        <h3>{{ monthNames[currentMonth - 1] }} {{ currentYear }}</h3>
-                        <button (click)="nextMonth()">></button>
+                        <h3 class="curr_date">{{ monthNames[currentMonth - 1] }} {{ currentYear }}</h3>
+                        <button class="button" id="right_arrow" (click)="nextMonth()">></button>
             </h2>
         </div>
         <div class="week-labels">

@@ -51,7 +51,7 @@
       <div id="u16" class="ax_default button">
         <div id="u16_div" class=""></div>
         <div id="u16_text" class="text">
-          <button (click)="logout()">Logout</button>
+          <button class="button" (click)="logout()">Logout</button>
         </div>
       </div>
 
@@ -60,7 +60,7 @@
         <div id="u17_div" class=""></div>
         <div id="u17_text" class="text">
           <p><button
-            class="nav-item nav-link"
+            class="button"
             routerLink="/create-appointment"
             routerLinkActive="active"
             >Termin manuell erstellen
@@ -73,7 +73,7 @@
         <div id="u18_div" class=""></div>
         <div id="u18_text" class="text">
           <p><button
-          class="nav-item nav-link"
+          class="button"
           routerLink="/calender"
           routerLinkActive="active"
           >Kalender ansehen
@@ -124,17 +124,15 @@
           <p></p>
         </div>
       </div>
-
+      
       <!-- Unnamed (Rectangle) -->
       <div id="u23" class="ax_default paragraph">
-        <div id="u23_div" class=""></div>
-        <div id="u23_text" class="text">
-          <p><span>-Screenshot + Kurzbeschreibung</span></p>
-          <p>
-            <span><br /></span>
-          </p>
-          <p><span>TEXT3</span></p>
-        </div>
+        <app-hourly-view [hours]="hours" [appointments]="appointments"></app-hourly-view>
+        <!--<div id="u23_div" class=""></div>-->
+        
+
+         
+       
       </div>
 
       <!-- Unnamed (Text Field) -->
@@ -147,8 +145,7 @@
           class="u24_input"
         />
       
-      <app-hourly-view [hours]="hours" [appointments]="appointments"></app-hourly-view>
-      <input type="text" [(ngModel)]="formattedDate" placeholder="Date"><!--dateValue-->
+      <input id="u30_input" type="text" [(ngModel)]="formattedDate" placeholder="Date"><!--dateValue-->
     </div>
   </div>
     <script src="resources/scripts/axure/ios.js"></script>

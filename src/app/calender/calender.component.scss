@@ -21,7 +21,7 @@ body {
 }
 
 .calendar {
-  padding-top: 100px;
+  padding-top: 240px;
 }
 
 .week-labels {
@@ -120,6 +120,11 @@ body {
 .private-border {
   border-bottom: 5px solid green;
   border-right: 5px solid green;
+}
+.button{
+  text-align: center;
+  height: 36px;
+  width: 136px;
 }
 #base {
   position: absolute;
@@ -275,6 +280,23 @@ body {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+#left_arrow{
+   position: absolute;
+   left: 242px;
+   top: 188px;
+}
+
+.curr_date{
+  position: absolute;
+  left: 544px;
+  top: 150px;
+}
+
+#right_arrow{
+   position: absolute;
+   left: 872px;
+   top: 188px;
 }
 
 #u85 {
