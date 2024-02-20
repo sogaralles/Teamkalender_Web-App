@@ -51,7 +51,7 @@ export class CreateAppointmentComponent implements OnInit {
 
     };
     //this.http.post('http://localhost:3000/events', postData)
-    this.http.post('http://193.197.231.167:3000/events', postData)
+    this.http.post('http://193.197.231.167:3000/events', postData) //muss rein bwcloud
       .subscribe((response) => {
         console.log('succesfull POST request', response);
       }, (error) => {
