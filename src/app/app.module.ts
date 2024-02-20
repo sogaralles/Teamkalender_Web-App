@@ -32,9 +32,12 @@ function initializeKeycloak(keycloak: KeycloakService) {
         clientId: 'teamkalender_client'
       },
       initOptions: {
-        onLoad: 'check-sso',
-        silentCheckSsoRedirectUri:
-          window.location.origin + '/assets/silent-check-sso.html'
+        //onLoad: 'check-sso',
+        //silentCheckSsoRedirectUri:
+        //  window.location.origin + '/assets/silent-check-sso.html', 
+        redirectUri: 'http://193.197.231.167:4200',
+        //redirectUri: 'http://localhost:4200',
+        checkLoginIframe: false
       },
       loadUserProfileAtStartUp: true
     });
