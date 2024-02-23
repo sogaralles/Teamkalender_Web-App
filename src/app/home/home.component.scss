@@ -1,644 +1,236 @@
 body {
-    margin:0px;
-    background-image:none;
-    position:relative;
-    left:-30px;
-    width:1141px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:left;
-  }
-  .form_sketch {
-    border-color:transparent;
-    background-color:transparent;
-  }
-  .button{
-    text-align: center;
-    height: 36px;
-    width: 136px;
-  }
-  #base {
-    position:absolute;
-    z-index:0;
-  }
-  #todaysAppointments{
-    background-color: green;
-    left: 0px;
-    top: 0px;
-  }
-  #u13_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:339px;
-    height:232px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u13 {
-    border-width:0px;
-    position:absolute;
-    left:608px;
-    top:124px;
-    width:339px;
-    height:232px;
-    display:flex;
-  }
-  #u13 .text {
-    position:absolute;
-    align-self:center;
-    padding:2px 2px 2px 2px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u13_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-    visibility:hidden;
-  }
-  #u14_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:339px;
-    height:232px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u14 {
-    border-width:0px;
-    position:absolute;
-    left:185px;
-    top:124px;
-    width:339px;
-    height:232px;
-    display:flex;
-  }
-  #u14 .text {
-    position:absolute;
-    align-self:center;
-    padding:2px 2px 2px 2px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u14_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-    visibility:hidden;
-  }
-  #u15_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:194px;
-    height:30px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 0);
-    border:none;
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-    font-size:28px;
-  }
-  #u15 {
-    border-width:0px;
-    position:absolute;
-    left:474px;
-    top:3px;
-    width:194px;
-    height:30px;
-    display:flex;
-    font-size:28px;
-    font-family: "Arial Fett", "Arial Standard", "Arial", sans-serif;
-  }
-  #u15 .text {
-    position:absolute;
-    align-self:flex-start;
-    padding:0px 0px 0px 0px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u15_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-  }
-  #u16_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:140px;
-    height:40px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u16 {
-    border-width:0px;
-    position:absolute;
-    left:30px;
-    top:53px;
-    width:140px;
-    height:40px;
-    display:flex;
-  }
-  #u16 .text {
-    position:absolute;
-    align-self:center;
-    padding:2px 2px 2px 2px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u16_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-  }
-  #u17_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:140px;
-    height:40px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u17 {
-    border-width:0px;
-    position:absolute;
-    left:279px;
-    top:307px;
-    width:140px;
-    height:40px;
-    display:flex;
-  }
-  #u17 .text {
-    position:absolute;
-    align-self:center;
-    padding:2px 2px 2px 2px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u17_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-  }
-  #u18_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:140px;
-    height:40px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u18 {
-    border-width:0px;
-    position:absolute;
-    left:715px;
-    top:307px;
-    width:140px;
-    height:40px;
-    display:flex;
-  }
-  #u18 .text {
-    position:absolute;
-    align-self:center;
-    padding:2px 2px 2px 2px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u18_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-  }
-  #u19_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:140px;
-    height:40px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:5px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u19 {
-    border-width:0px;
-    position:absolute;
-    left:1031px;
-    top:53px;
-    width:140px;
-    height:40px;
-    display:flex;
-  }
-  #u19 .text {
-    position:absolute;
-    align-self:center;
-    padding:2px 2px 2px 2px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u19_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-  }
-  /*#u20_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:150px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 0);
-    border:none;
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }*/
-  #u20 {
-    border-width:0px;
-    position:absolute;
-    left:199px;
-    top:89px;
-    width:300px;
-    height:150px;
-    display:flex;
-  }
-  #u20 .text {
-    position:absolute;
-    align-self:flex-start;
-    padding:0px 0px 0px 0px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u20_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-  }
-  #u21_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:150px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 0);
-    border:none;
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u21 {
-    border-width:0px;
-    position:absolute;
-    left:635px;
-    top:89px;
-    width:300px;
-    height:150px;
-    display:flex;
-  }
-  #u21 .text {
-    position:absolute;
-    align-self:flex-start;
-    padding:0px 0px 0px 0px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u21_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-  }
-  #u22_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:1139px;
-    height:732px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u22 {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:383px;
-    width:1339px;
-    height:232px;
-    display:flex;
-  }
-  #u22 .text {
-    position:absolute;
-    align-self:center;
-    padding:2px 2px 2px 2px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u22_text {
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-    visibility:hidden;
-  }
-  #u23_div {
-    background-color: green;
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:150px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 0);
-    border:none;
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u23 {
-    border-width:0px;
-    position:absolute;
-    left:-169px;
-    top:279px;
-    width:300px;
-    height:150px;
-    display:flex;
-  }
-  #u23 .text {
-    position:absolute;
-    align-self:flex-start;
-    padding:0px 0px 0px 0px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u23_text {
-    background-color: green;
-    border-width:0px;
-    word-wrap:break-word;
-    text-transform:none;
-  }
-  #u24_input {
-    position:absolute;
-    left:5px;
-    top:-10px;
-    width:300px;
-    height:25px;
-    padding:2px 2px 2px 2px;
-    font-family:"Arial Standard", "Arial", sans-serif;
-    font-weight:400;
-    font-style:normal;
-    font-size:13px;
-    letter-spacing:normal;
-    color:#000000;
-    vertical-align:none;
-    text-align:center;
-    text-transform:none;
-    background-color:transparent;
-    border-color:transparent;
-  }
+  margin: 0px;
+  background-image: none;
+  position: relative;
+  left: -30px;
+  width: 1141px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
 
-  #u30_input {
-    position:absolute;
-    left:px;
-    top:20px;
-    width:300px;
-    height:25px;
-    padding:2px 2px 2px 2px;
-    font-family:"Arial Standard", "Arial", sans-serif;
-    font-weight:400;
-    font-style:normal;
-    font-size:13px;
-    letter-spacing:normal;
-    color:#000000;
-    vertical-align:none;
-    text-align:left;
-    text-transform:none;
-    background-color:transparent;
-    border-color:transparent;
-  }
-  #u24_input.hint {
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:25px;
-    padding:2px 2px 2px 2px;
-    font-family:"Arial Standard", "Arial", sans-serif;
-    font-weight:400;
-    font-style:normal;
-    font-size:13px;
-    letter-spacing:normal;
-    color:#999999;
-    vertical-align:none;
-    text-align:left;
-    text-transform:none;
-    background-color:transparent;
-    border-color:transparent;
-  }
-  #u24_input.disabled {
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:25px;
-    padding:2px 2px 2px 2px;
-    font-family:"Arial Standard", "Arial", sans-serif;
-    font-weight:400;
-    font-style:normal;
-    font-size:13px;
-    letter-spacing:normal;
-    color:#000000;
-    vertical-align:none;
-    text-align:left;
-    text-transform:none;
-    background-color:transparent;
-    border-color:transparent;
-  }
-  #u24_input.hint.disabled {
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:25px;
-    padding:2px 2px 2px 2px;
-    font-family:"Arial Standard", "Arial", sans-serif;
-    font-weight:400;
-    font-style:normal;
-    font-size:13px;
-    letter-spacing:normal;
-    color:#999999;
-    vertical-align:none;
-    text-align:left;
-    text-transform:none;
-    background-color:transparent;
-    border-color:transparent;
-  }
-  #u24_div {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:25px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u24 {
-    border-width:0px;
-    position:absolute;
-    left:421px;
-    top:398px;
-    width:300px;
-    height:25px;
-    display:flex;
-  }
-  #u24 .text {
-    position:absolute;
-    align-self:center;
-    padding:2px 2px 2px 2px;
-    box-sizing:border-box;
-    width:100%;
-  }
-  #u24_div.hint {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:25px;
-    background:inherit;
-    background-color:rgba(255, 255, 255, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u24.hint {
-  }
-  #u24_div.disabled {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:25px;
-    background:inherit;
-    background-color:rgba(240, 240, 240, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u24.disabled {
-  }
-  #u24_div.hint.disabled {
-    border-width:0px;
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:300px;
-    height:25px;
-    background:inherit;
-    background-color:rgba(240, 240, 240, 1);
-    box-sizing:border-box;
-    border-width:1px;
-    border-style:solid;
-    border-color:rgba(121, 121, 121, 1);
-    border-radius:0px;
-    -moz-box-shadow:none;
-    -webkit-box-shadow:none;
-    box-shadow:none;
-  }
-  #u24.hint.disabled {
-  }
-  
+.button {
+  text-align: center;
+  height: 36px;
+  width: 136px;
+}
+
+#base {
+  position: absolute;
+  z-index: 0;
+}
+
+#todaysAppointments {
+  background-color: green;
+  left: 0px;
+  top: 0px;
+}
+
+#viewCalender-box {
+  border-width: 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 339px;
+  height: 232px;
+  background: inherit;
+  background-color: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(121, 121, 121, 1);
+  border-radius: 0px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#viewCalender-boxPos {
+  border-width: 0px;
+  position: absolute;
+  left: 608px;
+  top: 124px;
+  width: 339px;
+  height: 232px;
+  display: flex;
+}
+
+#createAppointment-box {
+  border-width: 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 339px;
+  height: 232px;
+  background: inherit;
+  background-color: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(121, 121, 121, 1);
+  border-radius: 0px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#createAppointment-boxPos {
+  border-width: 0px;
+  position: absolute;
+  left: 185px;
+  top: 124px;
+  width: 339px;
+  height: 232px;
+  display: flex;
+}
+
+#header {
+  border-width: 0px;
+  position: absolute;
+  left: 474px;
+  top: 3px;
+  width: 694px;
+  height: 30px;
+  display: flex;
+  font-size: 28px;
+  font-family: "Arial Fett", "Arial Standard", "Arial", sans-serif;
+  text-align: center;
+}
+
+#createAppointment-buttonPos {
+  border-width: 0px;
+  position: absolute;
+  left: 279px;
+  top: 307px;
+  width: 140px;
+  height: 40px;
+  display: flex;
+}
+
+#viewCalender-buttonPos {
+  border-width: 0px;
+  position: absolute;
+  left: 715px;
+  top: 307px;
+  width: 140px;
+  height: 40px;
+  display: flex;
+}
+
+#logout-buttonPos {
+  border-width: 0px;
+  position: absolute;
+  left: 1031px;
+  top: 53px;
+  width: 140px;
+  height: 40px;
+  display: flex;
+}
+
+#createAppointment-descriptionPos {
+  border-width: 0px;
+  position: absolute;
+  left: 199px;
+  top: 89px;
+  width: 300px;
+  height: 150px;
+  display: flex;
+}
+
+#viewCalender-descriptionPos {
+  border-width: 0px;
+  position: absolute;
+  left: 635px;
+  top: 89px;
+  width: 300px;
+  height: 150px;
+  display: flex;
+}
+
+#todaysAppointment-box {
+  border-width: 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1139px;
+  height: 732px;
+  background: inherit;
+  background-color: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(121, 121, 121, 1);
+  border-radius: 0px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#todaysAppointment-boxPos {
+  border-width: 0px;
+  position: absolute;
+  left: 0px;
+  top: 383px;
+  width: 1339px;
+  height: 232px;
+  display: flex;
+}
+
+#app-hourly-viewPos {
+  border-width: 0px;
+  position: absolute;
+  left: -169px;
+  top: 279px;
+  width: 300px;
+  height: 150px;
+  display: flex;
+}
+
+#todaysAppointment-headerTextPos {
+  position: absolute;
+  left: 5px;
+  top: -10px;
+  width: 300px;
+  height: 25px;
+  padding: 2px 2px 2px 2px;
+  font-family: "Arial Standard", "Arial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+  letter-spacing: normal;
+  color: #000000;
+  vertical-align: none;
+  text-align: center;
+  text-transform: none;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#todaysAppointment-headerBox {
+  border-width: 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 300px;
+  height: 25px;
+  background: inherit;
+  background-color: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(121, 121, 121, 1);
+  border-radius: 0px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#todaysAppointment-headerPos {
+  border-width: 0px;
+  position: absolute;
+  left: 421px;
+  top: 398px;
+  width: 300px;
+  height: 25px;
+  display: flex;
+}

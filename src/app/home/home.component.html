@@ -1,151 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Home</title>
-  </head>
 
-  <body>
-    
-    <div id="base" class="">
-      <!-- Unnamed (Rectangle) -->
-      <div id="u13" class="ax_default box_1">
-        <div id="u13_div" class=""></div>
-        <div
-          id="u13_text"
-          class="text"
-          style="display: none; visibility: hidden"
-        >
-          <p></p>
-        </div>
-      </div>
+<head>
+  <title>Home</title>
+</head>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u14" class="ax_default box_1">
-        <div id="u14_div" class=""></div>
-        <div
-          id="u14_text"
-          class="text"
-          style="display: none; visibility: hidden"
-        >
-          <p></p>
-        </div>
-      </div>
+<body>
 
-      <!-- Unnamed (Rectangle) -->
-      <div id="u15" class="ax_default paragraph">
-        <div id="u15_div" class=""></div>
-        <div id="u15_text" class="text">
-          <p style="text-align: center">
-            <span
-              >Home </span
-              ><br>
-              Hallo {{ username() }}
-              
-            </p>
-          <p style="text-align: left">
-            <span><br /></span>
-          </p>
-        </div>
-      </div>
+  <div id="base">
 
-      <!-- Unnamed (Rectangle) -->
-      <!--<div id="u16" class="ax_default button">
-        <div id="u16_div" class=""></div>
-        <div id="u16_text" class="text">
-          <button class="button" (click)="logout()">Logout</button>
-        </div>
-      </div>-->
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u17" class="ax_default button">
-        <div id="u17_div" class=""></div>
-        <div id="u17_text" class="text">
-          <p><button
-            class="button"
-            routerLink="/create-appointment"
-            routerLinkActive="active"
-            >Termin manuell erstellen
-            </button></p> <!--TODO evtl. wird hierbei ein create-appointment2 benötigt => 1. Manuell Datum eintragen 2. Datum ist fest durch klicken eines Buttons -->
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u18" class="ax_default button">
-        <div id="u18_div" class=""></div>
-        <div id="u18_text" class="text">
-          <p><button
-          class="button"
-          routerLink="/calender"
-          routerLinkActive="active"
-          >Kalender ansehen
-          </button></p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u19" class="ax_default button">
-        <div id="u19_div" class=""></div>
-        <div id="u19_text" class="text">
-          <button class="button" (click)="logout()">Logout</button>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u20" class="ax_default paragraph">
-        <div id="u20_div" class=""></div>
-        <div id="u20_text" class="text">
-          <p>-Screenshot</p>
-          <p>Hier können Sie direkt einen Termin erstellen, ohne das Datum im Kalender suchen zu müssen.</p>
-          <p>Private Termine sind nur für Sie selbst sichtbar</p>
-          <p>Öffentliche Termine sind nur für alle Benutzer sichtbar</p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u21" class="ax_default paragraph">
-        <div id="u21_div" class=""></div>
-        <div id="u21_text" class="text">
-          <p>-Screenshot</p>
-          <p>Hier können Sie alle im Kalender eingetragenen Termine einsehen. Private Termine sind grün markiert, diese sind nur von Ihnen selbst als privater Termine eingetragen worden und sommit auch nur für Sie selbst sichtbar. Öffentliche Termine sind orange markiert, das sind alle Termine die als öffentliche Termine erstellt wurden, auch von anderen Personen.</p>
-        </div>
-      </div>
-
-      <!-- Unnamed (Rectangle) -->
-      <div id="u22" class="ax_default box_1">
-        <div id="u22_div" class=""></div>
-        <div
-          id="u22_text"
-          class="text"
-          style="display: none; visibility: hidden"
-        >
-          <p></p>
-        </div>
-      </div>
-      
-      <!-- Unnamed (Rectangle) -->
-      <div id="u23" class="ax_default paragraph">
-        <app-hourly-view [hours]="hours" [appointments]="appointments"></app-hourly-view>
-        <!--<div id="u23_div" class=""></div>-->
-        
-
-         
-       
-      </div>
-
-      <!-- Unnamed (Text Field) -->
-      <div id="u24" class="ax_default text_field">
-        <div id="u24_div" class=""></div>
-        <!--<input
-          id="u24_input"
-          type="text"
-          value="Heute anstehende Termine"
-          class="u24_input"
-        />-->
-        <p id="u24_input" class="u24_input">heutige Termine: {{formattedDate}}</p>
-      
-      <!--<input id="u30_input" type="text" [(ngModel)]="formattedDate" placeholder="Date">--><!--dateValue-->
+    <div id="viewCalender-boxPos">
+      <div id="viewCalender-box"></div>
     </div>
+
+    <div id="createAppointment-boxPos">
+      <div id="createAppointment-box"></div>
+    </div>
+
+    <div id="header">
+      <p>Home <br>
+        Hallo {{ username() }}
+      </p>
+    </div>
+
+    <div id="createAppointment-buttonPos" class="text">
+      <div class="text">
+        <button routerLink="/create-appointment" routerLinkActive="active">Termin manuell erstellen
+        </button>
+      </div>
+    </div>
+
+    <div id="viewCalender-buttonPos">
+      <div class="text">
+        <button class="button" routerLink="/calender" routerLinkActive="active">Kalender ansehen
+        </button>
+      </div>
+    </div>
+
+    <div id="logout-buttonPos">
+      <div class="text">
+        <button class="button" (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div id="createAppointment-descriptionPos">
+      <div class="text">
+        <p>-Screenshot</p>
+        <p>Hier können Sie direkt einen Termin erstellen, ohne das Datum im Kalender suchen zu müssen.</p>
+        <p>Private Termine sind nur für Sie selbst sichtbar</p>
+        <p>Öffentliche Termine sind für alle Benutzer sichtbar</p>
+      </div>
+    </div>
+
+    <div id="viewCalender-descriptionPos">
+      <div class="text">
+        <p>-Screenshot</p>
+        <p>Hier können Sie alle im Kalender eingetragenen Termine einsehen. Private Termine sind grün markiert, diese
+          sind nur von Ihnen selbst als privater Termine eingetragen worden und sommit auch nur für Sie selbst sichtbar.
+          Öffentliche Termine sind orange markiert, das sind alle Termine die als öffentliche Termine erstellt wurden,
+          auch von anderen Personen.</p>
+      </div>
+    </div>
+
+    <div id="todaysAppointment-boxPos">
+      <div id="todaysAppointment-box"></div>
+    </div>
+
+    <div id="app-hourly-viewPos">
+      <app-hourly-view [hours]="hours" [appointments]="appointments"></app-hourly-view>
+    </div>
+
+    <div id="todaysAppointment-headerPos">
+      <div id="todaysAppointment-headerBox"></div>
+      <p id="todaysAppointment-headerTextPos">heutige Termine: {{formattedDate}}</p>
+    </div>
+    
   </div>
-    <script src="resources/scripts/axure/ios.js"></script>
-  </body>
+
+</body>
 </html>
