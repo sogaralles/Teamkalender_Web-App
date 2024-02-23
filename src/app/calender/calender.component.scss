@@ -67,7 +67,7 @@ body {
 
 .has-events {
   background-color: darkblue; 
-  color: black; 
+  color: white; 
 }
 
 .settings {
@@ -113,13 +113,13 @@ body {
 }
 
 .public-border {
-  border-top: 5px solid orange;
-  border-left: 5px solid orange;
+  border-top: 4px solid orange;
+  border-left: 4px solid orange;
 }
 
 .private-border {
-  border-bottom: 5px solid green;
-  border-right: 5px solid green;
+  border-bottom: 4px solid lightgreen;
+  border-right: 4px solid lightgreen;
 }
 .button{
   text-align: center;
@@ -154,13 +154,14 @@ body {
   border-width: 0px;
   position: absolute;
   left: 559px;
-  top: 43px;
+  top: 3px;
   width: 137px;
   height: 37px;
   display: flex;
   font-family: "Arial Fett", "Arial Standard", "Arial", sans-serif;
-  font-weight: 700;
+  
   font-style: normal;
+  font-size:28px;
 }
 
 #u82 .text {

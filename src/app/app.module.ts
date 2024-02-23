@@ -25,21 +25,20 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        //url: 'http://172.30.104.80:10001/auth', //alt
-        //url: 'http://localhost:8080/auth',
-        url: 'http://193.197.231.167:8080/auth', //muss rein bwcloud
-        realm: 'teamkalender-realm',
-        clientId: 'teamkalender_client'
+        url: 'http://localhost:8080/auth',
+        //url: 'http://193.197.231.167:8080/auth', //bwcloud
+        realm: 'teamkalender-realm', //bwcloud
+        clientId: 'teamkalender_client' //bwcloud
       },
       initOptions: {
         //onLoad: 'check-sso',
         //silentCheckSsoRedirectUri:
         //  window.location.origin + '/assets/silent-check-sso.html', 
-        redirectUri: 'http://193.197.231.167:4200',
-        //redirectUri: 'http://localhost:4200',
-        checkLoginIframe: false
+        //redirectUri: 'http://193.197.231.167:4200',//bwcloud
+        redirectUri: 'http://localhost:4200',
+        checkLoginIframe: false //bwcloud
       },
-      loadUserProfileAtStartUp: true
+      loadUserProfileAtStartUp: true //bwcloud
     });
 }
 

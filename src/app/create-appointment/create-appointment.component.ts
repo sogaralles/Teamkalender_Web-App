@@ -14,6 +14,7 @@ import { HomeComponent } from '../home';
 })
 export class CreateAppointmentComponent implements OnInit {
   selectedDate: any;
+  selectedHour: string = '';
   dateValue: string = '';
   teamEventValue: number = 1;
   startTimeValue: string = '';
@@ -23,14 +24,19 @@ export class CreateAppointmentComponent implements OnInit {
   commentValue: string = '';
   ownerValue: any;
   isTeamEvent: boolean = false;
+  isDropDownStartTime: boolean = false;
+  isDropDownEndTime: boolean = false;
+  dropDownButton: string = '';
+  hours: string[] = [];
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private keycloakService: KeycloakService) {
     this.route.queryParams.subscribe(params => {
       this.dateValue = this.route.snapshot.queryParams['date'] || '';
       console.log('dateValue', this.dateValue);
     });
-    this.ownerValue=this.keycloakService.getUsername();
+    this.ownerValue = this.keycloakService.getUsername();
     console.log('.ownerValue', this.ownerValue);
+    this.generateHours();
   }
 
   ngOnInit(): void {
@@ -74,6 +80,35 @@ export class CreateAppointmentComponent implements OnInit {
     this.teamEventValue = this.isTeamEvent ? 2 : 1;
   }
 
+
+  //shows Dropdown Menu for the Start Time or the End Time
+  toggleDropDown(id: string, hour: string) {
+    this.selectedHour = hour;
+
+    if (id === 'dropDownStartTime') {
+        this.startTimeValue = this.selectedHour; 
+        this.isDropDownStartTime = !this.isDropDownStartTime; 
+        this.isDropDownEndTime = false; 
+        console.log('Selected start time:', this.startTimeValue);
+    } else if (id === 'dropDownEndTime') {
+        this.endTimeValue = this.selectedHour; 
+        this.isDropDownEndTime = !this.isDropDownEndTime; 
+        this.isDropDownStartTime = false; 
+        console.log('Selected end time:', this.endTimeValue);
+    }
+}
+
+  stopPropagation(event: Event) {
+    event.stopPropagation();
+  }
+
+  //Generates all hours for drop down menu
+  generateHours() {
+    for (let hour = 0; hour <= 24; hour++) {
+      this.hours.push((hour < 10 ? "0" : "") + hour + ":00");
+    }
+  }
+
   //gives all informations of current user back
   getUSerInformation() {
     this.keycloakService.loadUserProfile().then(profile => {
@@ -81,27 +116,27 @@ export class CreateAppointmentComponent implements OnInit {
     });
   }
 
- /* keycloakAdmin = new KeycloakAdminClient({
-    baseUrl: 'http://localhost:8080/auth/',
-    realmName: 'teamkalender-realm',
-    clientId: 'teamkalender_client',
-    clientSecret: '823db38f-f69a-4627-99be-79d5625eb79c',
-  });
-
-  async getAllUsers() {
-    try {
-      await this.keycloakAdmin.auth({
-        username: 'admin1',
-        password: 'admin1',
-      });
-      const users = await this.keycloakAdmin.users.find();
-    console.log('Alle Benutzer:', users);
-    return users;
-  } catch (error) {
-    console.error('Fehler beim Abrufen der Benutzer:', error);
-    throw error;
-  } finally {
-    await this.keycloakAdmin.deauth();
-  }
-}*/
+  /* keycloakAdmin = new KeycloakAdminClient({
+     baseUrl: 'http://localhost:8080/auth/',
+     realmName: 'teamkalender-realm',
+     clientId: 'teamkalender_client',
+     clientSecret: '823db38f-f69a-4627-99be-79d5625eb79c',
+   });
+ 
+   async getAllUsers() {
+     try {
+       await this.keycloakAdmin.auth({
+         username: 'admin1',
+         password: 'admin1',
+       });
+       const users = await this.keycloakAdmin.users.find();
+     console.log('Alle Benutzer:', users);
+     return users;
+   } catch (error) {
+     console.error('Fehler beim Abrufen der Benutzer:', error);
+     throw error;
+   } finally {
+     await this.keycloakAdmin.deauth();
+   }
+ }*/
 }

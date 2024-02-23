@@ -48,12 +48,12 @@
       </div>
 
       <!-- Unnamed (Rectangle) -->
-      <div id="u16" class="ax_default button">
+      <!--<div id="u16" class="ax_default button">
         <div id="u16_div" class=""></div>
         <div id="u16_text" class="text">
           <button class="button" (click)="logout()">Logout</button>
         </div>
-      </div>
+      </div>-->
 
       <!-- Unnamed (Rectangle) -->
       <div id="u17" class="ax_default button">
@@ -85,7 +85,7 @@
       <div id="u19" class="ax_default button">
         <div id="u19_div" class=""></div>
         <div id="u19_text" class="text">
-          <p><span>Settings</span></p> <!--TODO als Button => Pop-up Fenster-->
+          <button class="button" (click)="logout()">Logout</button>
         </div>
       </div>
 
@@ -93,11 +93,10 @@
       <div id="u20" class="ax_default paragraph">
         <div id="u20_div" class=""></div>
         <div id="u20_text" class="text">
-          <p><span>-Screenshot + Kurzbeschreibung</span></p>
-          <p>
-            <span><br /></span>
-          </p>
-          <p><span>TEXT1</span></p>
+          <p>-Screenshot</p>
+          <p>Hier können Sie direkt einen Termin erstellen, ohne das Datum im Kalender suchen zu müssen.</p>
+          <p>Private Termine sind nur für Sie selbst sichtbar</p>
+          <p>Öffentliche Termine sind nur für alle Benutzer sichtbar</p>
         </div>
       </div>
 
@@ -105,11 +104,8 @@
       <div id="u21" class="ax_default paragraph">
         <div id="u21_div" class=""></div>
         <div id="u21_text" class="text">
-          <p><span>-Screenshot + Kurzbeschreibung</span></p>
-          <p>
-            <span><br /></span>
-          </p>
-          <p><span>TEXT2</span></p>
+          <p>-Screenshot</p>
+          <p>Hier können Sie alle im Kalender eingetragenen Termine einsehen. Private Termine sind grün markiert, diese sind nur von Ihnen selbst als privater Termine eingetragen worden und sommit auch nur für Sie selbst sichtbar. Öffentliche Termine sind orange markiert, das sind alle Termine die als öffentliche Termine erstellt wurden, auch von anderen Personen.</p>
         </div>
       </div>
 
@@ -138,14 +134,15 @@
       <!-- Unnamed (Text Field) -->
       <div id="u24" class="ax_default text_field">
         <div id="u24_div" class=""></div>
-        <input
+        <!--<input
           id="u24_input"
           type="text"
           value="Heute anstehende Termine"
           class="u24_input"
-        />
+        />-->
+        <p id="u24_input" class="u24_input">heutige Termine: {{formattedDate}}</p>
       
-      <input id="u30_input" type="text" [(ngModel)]="formattedDate" placeholder="Date"><!--dateValue-->
+      <!--<input id="u30_input" type="text" [(ngModel)]="formattedDate" placeholder="Date">--><!--dateValue-->
     </div>
   </div>
     <script src="resources/scripts/axure/ios.js"></script>

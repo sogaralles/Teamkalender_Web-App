@@ -18,105 +18,101 @@
             </div>
         </div>
 
-        <!-- Unnamed (Text Field) -->
+        <!-- Unnamed (Text Field) //22.04.2024-->
         <div id="u89" class="ax_default text_field">
             <div id="u89_div" class=""></div>
-            <input id="u89_input" type="text" value="TT.MM.JJJJ" class="u89_input" />
+            <!--<input id="u89_input" type="text" value="TT.MM.JJJJ" class="u89_input" />-->
+            <input id="u89_input" type="text" [(ngModel)]="dateValue" placeholder="Datum" />
         </div>
 
         <!-- Unnamed (Text Field) -->
         <div id="u90" class="ax_default text_field">
             <div id="u90_div" class=""></div>
-            <input id="u90_input" type="text" value="Von Zeitraum" class="u90_input" />
+            
+            <!--<input type="text" [(ngModel)]="startTimeValue" placeholder="startTime">-->
+            <button id="u90_input" (click)="toggleDropDown('dropDownStartTime', selectedHour)" placeholder="Beginn" class="dropDownMenu1">{{ startTimeValue ? startTimeValue : 'Bitte Start Uhrzeit auswählen' }}</button>
+            <div id="dropDownStartTime" [ngClass]="{'dropDown-content1': true, 'show': isDropDownStartTime}" (click)="stopPropagation($event)">
+                <a *ngFor="let hour of hours" (click)="toggleDropDown('dropDownStartTime', hour)" class="hour-option">{{ hour }}</a>
+            </div>
+        
         </div>
-
+        
         <!-- Unnamed (Text Field) -->
         <div id="u91" class="ax_default text_field">
             <div id="u91_div" class=""></div>
-            <input id="u91_input" type="text" value="Bis Zeitraum" class="u91_input" />
+            <!--<input type="text" [(ngModel)]="endTimeValue" placeholder="endTime">-->
+            <button id="u91_input" (click)="toggleDropDown('dropDownEndTime', selectedHour)" placeholder="Ende" class="dropDownMenu2" >{{ endTimeValue ? endTimeValue : 'Bitte Ende Uhrzeit auswählen' }}</button> <!--[(ngModel)]="endTimeValue" placeholder="Ende"-->
+            <div id="dropDownEndTime" [ngClass]="{'dropDown-content2': true, 'show': isDropDownEndTime}" (click)="stopPropagation($event)">
+                <a *ngFor="let hour of hours" (click)="toggleDropDown('dropDownEndTime', hour)" class="hour-option">{{ hour }}</a>
+            </div>
+
         </div>
 
         <!-- Unnamed (Rectangle) -->
         <div id="u92" class="ax_default label">
-            <div id="u92_div" class=""></div>
-            <div id="u92_text" class="text ">
+          
                 <p><span>Zeitraum</span></p>
-            </div>
+            
+        </div>
+
+        <div id="u92_2" class="ax_default label">
+        <p>Besitzer: {{ownerValue}}</p>
         </div>
 
         <!-- Unnamed (Rectangle) -->
         <div id="u93" class="ax_default label">
-            <div id="u93_div" class=""></div>
-            <div id="u93_text" class="text ">
+            
+            
                 <p><span>Priorität</span></p>
-            </div>
+            
         </div>
 
         <!-- Unnamed (Ellipse) -->
         <div id="u94" class="ax_default marker">
-            <img id="u94_img" class="img " src="images/termin_erstellen/u94.svg" />
-            <div id="u94_text" class="text " style="display:none; visibility: hidden">
+            <!--<img id="u94_img" class="img " src="images/termin_erstellen/u94.svg" />-->
+            <button (click)="setPriority(3)" [class.border-active]="priorityValue === 3" style="background-color: red;">Hoch</button>
+            <!--<div id="u94_text" class="text " style="display:none; visibility: hidden">
                 <p></p>
-            </div>
+            </div>-->
         </div>
 
         <!-- Unnamed (Ellipse) -->
         <div id="u95" class="ax_default marker">
-            <img id="u95_img" class="img " src="images/termin_erstellen/u95.svg" />
-            <div id="u95_text" class="text " style="display:none; visibility: hidden">
+            <!--<img id="u95_img" class="img " src="images/termin_erstellen/u95.svg" />-->
+            <button (click)="setPriority(2)" [class.border-active]="priorityValue === 2" style="background-color: yellow;">Mittel</button>
+            <!--<div id="u95_text" class="text " style="display:none; visibility: hidden">
                 <p></p>
-            </div>
+            </div>-->
         </div>
 
         <!-- Unnamed (Ellipse) -->
         <div id="u96" class="ax_default marker">
-            <img id="u96_img" class="img " src="images/termin_erstellen/u96.svg" />
-            <div id="u96_text" class="text " style="display:none; visibility: hidden">
+            <!--<img id="u96_img" class="img " src="images/termin_erstellen/u96.svg" />-->
+            <button (click)="setPriority(1)" [class.border-active]="priorityValue === 1" style="background-color: green;">Gering</button>
+            <!--<div id="u96_text" class="text " style="display:none; visibility: hidden">
                 <p></p>
-            </div>
+            </div>-->
         </div>
 
-        <!-- Unnamed (Rectangle) -->
-        <div id="u97" class="ax_default label">
-            <div id="u97_div" class=""></div>
-            <div id="u97_text" class="text ">
-                <p><span>Hoch</span></p>
-            </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u98" class="ax_default label">
-            <div id="u98_div" class=""></div>
-            <div id="u98_text" class="text ">
-                <p><span>Niedrig</span></p>
-            </div>
-        </div>
-
-        <!-- Unnamed (Rectangle) -->
-        <div id="u99" class="ax_default label">
-            <div id="u99_div" class=""></div>
-            <div id="u99_text" class="text ">
-                <p><span>Mittel</span></p>
-            </div>
-        </div>
 
         <!-- Unnamed (Text Field) -->
         <div id="u100" class="ax_default text_field">
             <div id="u100_div" class=""></div>
-            <input id="u100_input" type="text" value="TerminName" class="u100_input" />
+            <!--<input type="text" [(ngModel)]="matterValue" placeholder="Matter">-->
+            <input id="u100_input" type="text" [(ngModel)]="matterValue" placeholder="Name" class="u100_input" />
         </div>
 
-        <!-- Unnamed (Rectangle) -->
+        <!-- Unnamed (Rectangle) //22.02.2024-->
         <div id="u101" class="ax_default label">
-            <div id="u101_div" class=""></div>
-            <div id="u101_text" class="text ">
+            
+           
                 <p><span>Datum</span></p>
-            </div>
+           
         </div>
 
         <!-- Unnamed (Rectangle) -->
         <div id="u102" class="ax_default label">
-            <div id="u102_div" class=""></div>
+            
             <div id="u102_text" class="text ">
                 <p><span>Termin Name</span></p>
             </div>
@@ -124,7 +120,7 @@
 
         <!-- Unnamed (Rectangle) -->
         <div id="u103" class="ax_default label">
-            <div id="u103_div" class=""></div>
+            
             <div id="u103_text" class="text ">
                 <p><span>Kommentar</span></p>
             </div>
@@ -133,31 +129,18 @@
         <!-- Unnamed (Text Area) -->
         <div id="u104" class="ax_default text_area">
             <div id="u104_div" class=""></div>
-            <textarea id="u104_input" class="u104_input">Das ist ein Kommentar.</textarea>
+            <!--<input type="text" [(ngModel)]="commentValue" placeholder="Comment">-->
+            <textarea id="u104_input" [(ngModel)]="commentValue" placeholder="Kommentar" class="u104_input"></textarea>
+            <!--<input type="text" [(ngModel)]="ownerValue" placeholder="Owner">-->
+            
         </div>
 
-        <!-- Unnamed (Rectangle) -->
-        <div id="u105" class="ax_default label ax_default_hidden" style="display:none; visibility: hidden">
-            <div id="u105_div" class=""></div>
-            <div id="u105_text" class="text ">
-                <p><span>erforderliche Personen</span></p>
-            </div>
-        </div>
-
-        <!-- Unnamed (Droplist) -->
-        <div id="u106" class="ax_default droplist ax_default_hidden" style="display:none; visibility: hidden">
-            <div id="u106_div" class=""></div>
-            <select id="u106_input" class="u106_input">
-                <option class="u106_input_option" value="Hans">Hans</option>
-                <option class="u106_input_option" value="Peter">Peter</option>
-            </select>
-        </div>
 
         <!-- Unnamed (Rectangle) -->
         <div id="u107" class="ax_default button">
             <div id="u107_div" class=""></div>
             <div id="u107_text" class="text ">
-                <p><button class="button" routerLink="/calender" routerLinkActive="active">Termin
+                <p><button (click)="sendPostRequest()" class="button" routerLink="/calender" routerLinkActive="active">Termin
                         speichern
                     </button></p>
                 <!--TODO überlegen, ob man damit nun wieder beim kalender landet oder ob man damit bei daily-appointment raus kommt, wo der Termin direkt mit eingetragen ist wahrscheinlicher zweiteres sinnvoller und besser-->
@@ -173,35 +156,38 @@
             </div>
         </div>
 
-        <p>Das ausgewählte Datum: {{ dateValue }}</p>
+        <!--<p>Das ausgewählte Datum: {{ dateValue }}</p>-->
         <!-- Unnamed (Checkbox) -->
         <div id="u109" class="ax_default checkbox">
             <label id="u109_input_label" for="u109_input" style="position: absolute; left: 0px;">
                 <img id="u109_img" class="img " src="images/termin_erstellen/u109.svg" />
                 <div id="u109_text" class="text ">
-                    <p><span>Team Termin</span></p>
+                    <p><span>öffentlicher Termin
+                    <input type="checkbox" [(ngModel)]="isTeamEvent" (change)="onCheckboxChange()">
+                    </span></p>
+                    <!--checkbox hier rein 22.02.2024-->
                 </div>
             </label>
-            <input id="u109_input" type="checkbox" value="checkbox" />
+            <!--<input id="u109_input" type="checkbox" value="checkbox" />-->
         </div>
 
-        <input type="text" [(ngModel)]="dateValue" placeholder="Date">
-        <input type="checkbox" [(ngModel)]="isTeamEvent" (change)="onCheckboxChange()">
-        <input type="text" [(ngModel)]="startTimeValue" placeholder="startTime">
-        <input type="text" [(ngModel)]="endTimeValue" placeholder="endTime">
+        <!--<input type="text" [(ngModel)]="dateValue" placeholder="Date">//22.02.2024 ursprünglich -->
+        <!--<input type="checkbox" [(ngModel)]="isTeamEvent" (change)="onCheckboxChange()">-->
+        <!--<input type="text" [(ngModel)]="startTimeValue" placeholder="startTime"> //22.02.2024 ursprünglich -->
+        <!--<input type="text" [(ngModel)]="endTimeValue" placeholder="endTime">//22.02.2024 ursprünglich -->
         <!--<input type="text" [(ngModel)]="priorityValue" placeholder="priority">-->
-        <div>
+        <!--<div>
             <button (click)="setPriority(1)" style="background-color: green;">Low</button>
             <button (click)="setPriority(2)" style="background-color: yellow;">Medium</button>
             <button (click)="setPriority(3)" style="background-color: red;">High</button>
-          </div>
-        <input type="text" [(ngModel)]="matterValue" placeholder="Matter">
-        <input type="text" [(ngModel)]="commentValue" placeholder="Comment">
-        <input type="text" [(ngModel)]="ownerValue" placeholder="Owner">
+        </div>//22.02.2024 ursprünglich-->
+        <!--<input type="text" [(ngModel)]="matterValue" placeholder="Matter">//22.02.2024 ursprünglich-->
+        <!--<input type="text" [(ngModel)]="commentValue" placeholder="Comment">//22.02.2024 ursprünglich-->
+        <!--<input type="text" [(ngModel)]="ownerValue" placeholder="Owner">//22.02.2024 ursprünglich-->
 
-        <button (click)="sendPostRequest()">Send POST Request</button>
+        <!--<button (click)="sendPostRequest()">Send POST Request</button>//22.02.2024 ursprünglich-->
     </div>
-    <script src="resources/scripts/axure/ios.js"></script>
+    <!--<script src="resources/scripts/axure/ios.js"></script>-->
 </body>
 
 </html>

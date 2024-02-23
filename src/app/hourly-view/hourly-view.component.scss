@@ -21,7 +21,7 @@
     width:292px;
     height:360px;
     background:inherit;
-    background-color:rgba(242, 242, 242, 1);
+    //background-color:rgba(242, 242, 242, 1);
     border:none;
     border-radius:0px;
   }
@@ -34,7 +34,7 @@
     display: flex;
     width: 500px;
     //align-items: center;
-    background-color: purple;
+    //background-color: purple;
     border: 1px solid black;
   }
 
@@ -48,8 +48,8 @@
   
   .hour-column {
     //flex: 1;
-    background-color: green;
-    border: 10px solid pink;
+    //background-color: green;
+    //border: 10px solid pink;
   }
   
   .hourly-view .hour-column:first-child {
@@ -72,10 +72,10 @@
   }*/
   
   .hour {
-    width: 60px;
-    text-align: right;
+    width: 50px;
+    text-align: center;
     //margin-right: 10px;
-    background-color: red;
+    background-color: lightgray;
   }
   
   /*.marked-hour {
@@ -87,7 +87,7 @@
     //margin:auto;
     
     //padding: 5px;
-    background-color: #cce5ff;
+    //background-color: #cce5ff;
     //border-radius: 30px;
   }
 
@@ -158,7 +158,7 @@
 }
 
   #base {
-    background-color: aqua;
+    //background-color: aqua;
     position:absolute;
     z-index:1;
   }
