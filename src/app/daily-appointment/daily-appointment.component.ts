@@ -53,8 +53,7 @@ export class DailyAppointmentComponent implements OnInit {
   }
 
   getEvents() {
-    //this.http.get<any>('http://localhost:3000/events').subscribe(
-    this.http.get<any>('http://193.197.231.167:3000/events').subscribe(//muss rein bwcloud
+    this.http.get<any>('http://193.197.231.167:3000/events').subscribe(//bwcloud IP
       (response) => {
         this.events = response.data;
         this.logEvents();

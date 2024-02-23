@@ -29,7 +29,6 @@ body {
   border-bottom: 1px solid #ccc;
   position: relative;
   top: 50px;
-  //z-index: 1;
   width: calc(100%);
 }
 
@@ -66,29 +65,8 @@ body {
 }
 
 .has-events {
-  background-color: darkblue; 
-  color: white; 
-}
-
-.settings {
-  margin-left: 10px;
-  padding: 5px;
-  //background-color: #cce5ff;
-  border-radius: 5px;
-}
-
-.wrapper {
-  text-align: center;
-  margin-top: 20px; 
-}
-
-.content{
-  background-color: #fff;
-  width: 300px;
-  height: 300px;
-  padding: 20px;
-  position: relative;
-  z-index: 1;
+  background-color: darkblue;
+  color: white;
 }
 
 .overlay {
@@ -104,13 +82,6 @@ body {
   z-index: 1;
 }
 
-.close {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    //font-size: 20px;
-    cursor: pointer;
-}
 
 .public-border {
   border-top: 4px solid orange;
@@ -121,36 +92,19 @@ body {
   border-bottom: 4px solid lightgreen;
   border-right: 4px solid lightgreen;
 }
-.button{
+
+.button {
   text-align: center;
   height: 36px;
   width: 136px;
 }
+
 #base {
   position: absolute;
-  //z-index: 0;
 }
 
-#u82_div {
-  border-width: 0px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 137px;
-  height: 37px;
-  background: inherit;
-  background-color: rgba(255, 255, 255, 0);
-  border: none;
-  border-radius: 0px;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  font-family: "Arial Fett", "Arial Standard", "Arial", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
 
-#u82 {
+#header {
   border-width: 0px;
   position: absolute;
   left: 559px;
@@ -159,45 +113,12 @@ body {
   height: 37px;
   display: flex;
   font-family: "Arial Fett", "Arial Standard", "Arial", sans-serif;
-  
+
   font-style: normal;
-  font-size:28px;
+  font-size: 28px;
 }
 
-#u82 .text {
-  position: absolute;
-  align-self: flex-start;
-  padding: 0px 0px 0px 0px;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-#u82_text {
-  border-width: 0px;
-  white-space: nowrap;
-  text-transform: none;
-}
-
-#u83_div {
-  border-width: 0px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 140px;
-  height: 40px;
-  background: inherit;
-  background-color: rgba(255, 255, 255, 1);
-  box-sizing: border-box;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(121, 121, 121, 1);
-  border-radius: 5px;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-#u83 {
+#back-buttonPos {
   border-width: 0px;
   position: absolute;
   left: 30px;
@@ -207,40 +128,7 @@ body {
   display: flex;
 }
 
-#u83 .text {
-  position: absolute;
-  align-self: center;
-  padding: 2px 2px 2px 2px;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-#u83_text {
-  border-width: 0px;
-  word-wrap: break-word;
-  text-transform: none;
-}
-
-#u84_div {
-  border-width: 0px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 140px;
-  height: 40px;
-  background: inherit;
-  background-color: rgba(255, 255, 255, 1);
-  box-sizing: border-box;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(121, 121, 121, 1);
-  border-radius: 5px;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-#u84 {
+#createAppointment-buttonPos {
   border-width: 0px;
   position: absolute;
   left: 556px;
@@ -250,100 +138,26 @@ body {
   display: flex;
 }
 
-#u84 .text {
+#left_arrow {
   position: absolute;
-  align-self: center;
-  padding: 2px 2px 2px 2px;
-  box-sizing: border-box;
-  width: 100%;
+  left: 242px;
+  top: 188px;
 }
 
-#u84_text {
-  border-width: 0px;
-  word-wrap: break-word;
-  text-transform: none;
-}
-
-#u85_div {
-  border-width: 0px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 140px;
-  height: 40px;
-  background: inherit;
-  background-color: rgba(255, 255, 255, 1);
-  box-sizing: border-box;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(121, 121, 121, 1);
-  border-radius: 5px;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-#left_arrow{
-   position: absolute;
-   left: 242px;
-   top: 188px;
-}
-
-.curr_date{
+.curr_date {
   position: absolute;
   left: 544px;
   top: 150px;
 }
 
-#right_arrow{
-   position: absolute;
-   left: 872px;
-   top: 188px;
-}
-
-#u85 {
-  border-width: 0px;
+#right_arrow {
   position: absolute;
-  left: 1092px;
-  top: 108px;
-  width: 140px;
-  height: 40px;
-  display: flex;
+  left: 872px;
+  top: 188px;
 }
 
-#u85 .text {
-  position: absolute;
-  align-self: center;
-  padding: 2px 2px 2px 2px;
-  box-sizing: border-box;
-  width: 100%;
-}
 
-#u85_text {
-  border-width: 0px;
-  word-wrap: break-word;
-  text-transform: none;
-}
-
-#u86_div {
-  border-width: 0px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 140px;
-  height: 40px;
-  background: inherit;
-  background-color: rgba(255, 255, 255, 1);
-  box-sizing: border-box;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(121, 121, 121, 1);
-  border-radius: 5px;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-#u86 {
+#logout-buttonPos {
   border-width: 0px;
   position: absolute;
   left: 1092px;
@@ -351,18 +165,4 @@ body {
   width: 140px;
   height: 40px;
   display: flex;
-}
-
-#u86 .text {
-  position: absolute;
-  align-self: center;
-  padding: 2px 2px 2px 2px;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-#u86_text {
-  border-width: 0px;
-  word-wrap: break-word;
-  text-transform: none;
 }

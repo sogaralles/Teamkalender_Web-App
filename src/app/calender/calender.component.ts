@@ -34,14 +34,14 @@ export class CalenderComponent implements OnInit {
     this.getEvents();
   }
 
-  public logout() {
-    this.keycloakService.logout(); //as parameter a url can be placed to be redirected to a public website
+  logout() {
+    this.keycloakService.logout(); 
   }
-
+  //generates array of days for each month with necessary empty day fields for the structure
   generateDays(year: number, month: number) {
     const daysInMonth = new Date(year, month, 0).getDate();
     const firstDayOfMonth = new Date(year, month - 1, 1).getDay();
-    const offset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // offset for the first day
+    const offset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // offset for the first day, first day is a Sunday if firstDayOfMonth is 0
 
     this.days = [];
     for (let i = 1 - offset; i <= daysInMonth + (7 - ((daysInMonth + offset) % 7)); i++) {
@@ -61,17 +61,17 @@ export class CalenderComponent implements OnInit {
 
     this.weekNumbers = this.getWeekNumbers(year, month);
   }
-
+  //groups days of months into weekly chunks 
   get chunkedDays(): (Date | null)[][] {
     const chunkSize = 7;
-    const arrayCopy = [...this.days];
+    const arrayCopy = this.days.slice();
     const chunks = [];
     while (arrayCopy.length > 0) {
       chunks.push(arrayCopy.splice(0, chunkSize)); //removes chunkSize from index 0 
     }
     return chunks;
   }
-
+  //increase month
   nextMonth() {
     this.currentMonth++;
     if (this.currentMonth > 12) {
@@ -80,7 +80,7 @@ export class CalenderComponent implements OnInit {
     }
     this.generateDays(this.currentYear, this.currentMonth);
   }
-
+  //decrease month
   previousMonth() {
     this.currentMonth--;
     if (this.currentMonth < 1) {
@@ -89,15 +89,14 @@ export class CalenderComponent implements OnInit {
     }
     this.generateDays(this.currentYear, this.currentMonth);
   }
-
+  //by click on day of month navigate to daily-appointment
   onDayClick(day: Date) {
     if (day instanceof Date) {
       this.router.navigate(['/daily-appointment'], { queryParams: { date: day.toISOString() } });
     }
   }
-
+  //generates week numbers for each week of each month
   getWeekNumbers(year: number, month: number): number[] {
-    //TODO: anpassen zu Kalenderwochen => zählt hoch, bis zum Jahresende, nicht monatlich
     const daysInMonth = new Date(year, month, 0).getDate();
     let weekNumber = 1;
     const weekNumbers: number[] = [];
@@ -114,13 +113,11 @@ export class CalenderComponent implements OnInit {
 
     return weekNumbers;
   }
-
+  //get evenets from backend database
   getEvents() {
-    //this.http.get<any>('http://localhost:3000/events').subscribe(
-    this.http.get<any>('http://193.197.231.167:3000/events').subscribe(//muss rein bwcloud
+    this.http.get<any>('http://193.197.231.167:3000/events').subscribe(//bwcloud IP
       (response) => {
         this.events = response.data;
-        this.logEvents();
       },
       (error) => {
         console.error('Error fetching events:', error);
@@ -129,7 +126,7 @@ export class CalenderComponent implements OnInit {
   }
 
 
-  
+  //shows public events for all and private events only for current user
   hasEventsOnDay(day: Date | null, teamEvent: number): boolean {
     if (day instanceof Date) {
       const year = day.getFullYear();
@@ -140,7 +137,7 @@ export class CalenderComponent implements OnInit {
       return this.events.some((event: any) => {
         if (event.date && event.teamEvent === teamEvent) {
           const eventDateStr = event.date.split(' ')[0];
-          const isCurrentUserEvent = teamEvent === 1 ? this.isCurrentUser(event): true;
+          const isCurrentUserEvent = teamEvent === 1 ? this.isCurrentUser(event): true; //show private events only for current user
           return eventDateStr === dayStr && isCurrentUserEvent;
         }
         return false;
@@ -148,7 +145,7 @@ export class CalenderComponent implements OnInit {
     }
     return false;
   }
-
+  
   isCurrentUser(appointment: any): boolean {
     const currentUsername = this.keycloakService.getUsername();
     return appointment.owner === currentUsername;
@@ -161,10 +158,5 @@ export class CalenderComponent implements OnInit {
   public closepopup() {
     console.log("isPopupOpen false");
     this.isPopupOpen = false;
-  }
-
-
-  logEvents() {
-    console.log('Events:', this.events);
   }
 }

@@ -8,56 +8,26 @@
 <body>
     <div id="base" class="">
 
-        <div id="u82" class="ax_default heading_1">
-            <div id="u82_div" class=""></div>
-            <div id="u82_text" class="text ">
-                <p><span>Kalender</span></p>
-            </div>
+        <div id="header">
+            <p>Kalender</p>
         </div>
 
 
-        <div id="u83" class="ax_default button">
-            <div id="u83_div" class=""></div>
-            <div id="u83_text" class="text ">
-                <p><button class="button" routerLink="/home" routerLinkActive="active">zurück
-                    </button></p>
-            </div>
+        <div id="back-buttonPos">
+            <button class="button" routerLink="/home" routerLinkActive="active">zurück
+            </button>
         </div>
 
 
-        <div id="u84" class="ax_default button">
-            <div id="u84_div" class=""></div>
-            <div id="u84_text" class="text ">
-                <p><button class="button" routerLink="/create-appointment" routerLinkActive="active">Termin
-                        erstellen
-                    </button></p>
-            </div>
+        <div id="createAppointment-buttonPos">
+            <button class="button" routerLink="/create-appointment" routerLinkActive="active">Termin
+                erstellen
+            </button>
         </div>
 
 
-        <!--<div id="u85" class="ax_default button">
-            <div id="u85_div" class=""></div>
-            <div id="u85_text" class="text ">
-                <div class="wrapper">
-                    <p><button class="button" (click)="openpopup()">Settings</button></p>
-                </div>
-                <div class="overlay" *ngIf="isPopupOpen">
-                    <div class="content">
-                        <p>test</p>
-                        <div class="close" (click)="closepopup()">
-                            &times;
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
-
-        <div id="u86" class="ax_default button">
-            <div id="u86_div" class=""></div>
-            <div id="u86_text" class="text ">
-                <p><button class="button" (click)="logout()">Logout</button></p>
-            </div>
+        <div id="logout-buttonPos">
+            <button class="button" (click)="logout()">Logout</button>
         </div>
 
     </div>
@@ -94,7 +64,6 @@
             </ng-container>
         </div>
     </div>
-    <script src="resources/scripts/axure/ios.js"></script>
 </body>
 
 </html>
