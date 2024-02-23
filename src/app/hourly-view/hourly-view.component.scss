@@ -1,104 +1,44 @@
-/*body {
-    margin:0px;
-    background-image:none;
-    position:relative;
-    left:-327px;
-    width:734px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:left;
-  }*/
-  
-  /*.form_sketch {
-    border-color:transparent;
-    background-color:transparent;
-  }*/
-  #u110 {
-    border-width:0px;
-    position:absolute;
-    left:180px;
-    top:168px;
-    width:292px;
-    height:360px;
-    background:inherit;
-    //background-color:rgba(242, 242, 242, 1);
-    border:none;
-    border-radius:0px;
+  #hourlyView-pos {
+    border-width: 0px;
+    position: absolute;
+    left: 180px;
+    top: 168px;
+    width: 292px;
+    height: 360px;
+    background: inherit;
+    border: none;
+    border-radius: 0px;
   }
-  /*.hourly-view {
-    display: flex;
-    flex-direction: column;
-  }*/
-  
+
   .hour-row {
     display: flex;
     width: 500px;
-    //align-items: center;
-    //background-color: purple;
     border: 1px solid black;
   }
 
   .hourly-view {
     display: flex;
     border: 10px solid white;
-    //margin-left: 150px;
-    //justify-content: center; /* Zentriert den Container horizontal */
-    //align-items: center;
-  }
-  
-  .hour-column {
-    //flex: 1;
-    //background-color: green;
-    //border: 10px solid pink;
-  }
-  
-  .hourly-view .hour-column:first-child {
-    margin-right: 50px; //distance between
-    
   }
 
-  /*.hourly-view {
-    position: absolute;
-    top: 168px;
-    left: 327px;
+  .hourly-view .hour-column:first-child {
+    margin-right: 50px; //distance between both sides
   }
-  
-  .hour-row:nth-child(n+13) {
-    margin-left: 769px;
-    //top: -168px;
-    //position: relative;
-    //top: 168px;
-    //left: 327px;
-  }*/
-  
+
   .hour {
     width: 50px;
     text-align: center;
-    //margin-right: 10px;
     background-color: lightgray;
-  }
-  
-  /*.marked-hour {
-    background-color: #ffe6cc; 
-  }*/
-  
-  .appointment {
-    //margin-left: 10px;
-    //margin:auto;
-    
-    //padding: 5px;
-    //background-color: #cce5ff;
-    //border-radius: 30px;
   }
 
   .priority-green {
     background-color: green;
   }
-  
+
   .priority-yellow {
     background-color: yellow;
   }
-  
+
   .priority-red {
     background-color: red;
   }
@@ -106,61 +46,49 @@
   .wrapper {
     margin-left: 5px;
     height: 50px;
-    //text-align: center;
-    //margin-top: 20px; 
-    //margin-bottom: 20px; 
-}
-
-/*.btn {
-    padding: 10px 20px;
-    font-size: 16px;
-}*/
-
-.public-border {
-  border: 2px solid orange;
-}
-
-.private-border {
-  border: 2px solid lightgreen;
-}
-
-
-
-.content{
-  background-color: #fff;
-  width: 300px;
-  height: 300px;
-  padding: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
   }
 
-.close {
+  .public-border {
+    border: 2px solid orange;
+  }
+
+  .private-border {
+    border: 2px solid lightgreen;
+  }
+
+  .content {
+    background-color: #fff;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .close {
     position: absolute;
     top: 5px;
     right: 5px;
-    //font-size: 20px;
     cursor: pointer;
-}
+  }
 
   #base {
-    //background-color: aqua;
-    position:absolute;
-    z-index:1;
+    position: absolute;
+    z-index: 1;
   }
 
   #appointmentButton {

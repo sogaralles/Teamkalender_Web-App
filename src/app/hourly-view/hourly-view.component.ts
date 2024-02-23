@@ -14,12 +14,15 @@ export class HourlyViewComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  //show appointment in popup
   public openpopup(appointment: any) {
     appointment.show = true;
   }
+  //close appointment in popup
   public closepopup(appointment: any) {
     appointment.show = false;
   }
+  //get priorities low, medium, high
   getPriorityClass(priority: number): string {
     switch (priority) {
       case 1:
@@ -32,8 +35,8 @@ export class HourlyViewComponent implements OnInit {
         return '';
     }
   }
-
-  isTeamEvent(priority: number, teamEvent: number): string{
+  //set private/public borders
+  isTeamEvent(priority: number, teamEvent: number): string {
     let classes = this.getPriorityClass(priority);
 
     if (teamEvent === 1) {
@@ -41,10 +44,9 @@ export class HourlyViewComponent implements OnInit {
     } else if (teamEvent === 2) {
       classes += ' public-border';
     }
-  
     return classes.trim();
   }
-
+  //returns marked hours of appointments
   isHourMarked(appointment: any, hour: string): boolean {
     return hour >= appointment.startTime && hour < appointment.endTime;
   }

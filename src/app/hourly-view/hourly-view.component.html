@@ -1,37 +1,39 @@
 <div id="base" class="">
-  <div id="u110">
-<div class="hourly-view"><!--auszualgernder Teil Anfang-->
-  <!--<app-daily-appointment></app-daily-appointment>-->
-  <div class="hour-column" *ngFor="let column of [0, 1]">
-    <ng-container *ngFor="let hour of hours; let i = index">
-      <div class="hour-row" *ngIf="(column === 0 && i < hours.length / 2) || (column === 1 && i >= hours.length / 2)">
-        <div class="hour">
-          <p><span>{{ hour }}</span></p>
-        </div>
-        <div class="appointment" *ngFor="let appointment of appointments">
-          <span *ngIf="isHourMarked(appointment, hour) && (appointment.teamEvent === 2 || (appointment.teamEvent === 1 && isCurrentUser(appointment)))">
-            <div class="wrapper">
-              <button id="appointmentButton" (click)="openpopup(appointment)" [ngClass]="isTeamEvent(appointment.priority, appointment.teamEvent)">{{ appointment.matter }}</button>
+  <div id="hourlyView-pos">
+    <div class="hourly-view">
+      <div class="hour-column" *ngFor="let column of [0, 1]">
+        <ng-container *ngFor="let hour of hours; let i = index">
+          <div class="hour-row"
+            *ngIf="(column === 0 && i < hours.length / 2) || (column === 1 && i >= hours.length / 2)">
+            <div class="hour">
+              <p><span>{{ hour }}</span></p>
             </div>
-            <div class="overlay" *ngIf="appointment.show">
-              <div class="content">
-                <div class="close" (click)="closepopup(appointment)">
-                  &times;
+            <div class="appointment" *ngFor="let appointment of appointments">
+              <span
+                *ngIf="isHourMarked(appointment, hour) && (appointment.teamEvent === 2 || (appointment.teamEvent === 1 && isCurrentUser(appointment)))">
+                <div class="wrapper">
+                  <button id="appointmentButton" (click)="openpopup(appointment)"
+                    [ngClass]="isTeamEvent(appointment.priority, appointment.teamEvent)">{{ appointment.matter
+                    }}</button>
                 </div>
-                <p>Datum: {{appointment.date}}</p>
-                <p>Termin Thema: {{appointment.matter}}</p>
-                <p>Kommentar: {{appointment.comment}}</p>
-                <p>Beginn:{{appointment.startTime}}</p>
-                <p>Ende: {{appointment.endTime}}</p>
-                <p>Ersteller: {{appointment.owner}}</p>
-                <!--<p>appointment.teamEvent: {{appointment.teamEvent}}</p>-->
-              </div>
+                <div class="overlay" *ngIf="appointment.show">
+                  <div class="content">
+                    <div class="close" (click)="closepopup(appointment)">
+                      &times;
+                    </div>
+                    <p>Datum: {{appointment.date}}</p>
+                    <p>Termin Thema: {{appointment.matter}}</p>
+                    <p>Kommentar: {{appointment.comment}}</p>
+                    <p>Beginn:{{appointment.startTime}}</p>
+                    <p>Ende: {{appointment.endTime}}</p>
+                    <p>Ersteller: {{appointment.owner}}</p>
+                  </div>
+                </div>
+              </span>
             </div>
-          </span>
-        </div>
+          </div>
+        </ng-container>
       </div>
-    </ng-container>
+    </div>
   </div>
-</div><!--auszualgernder Teil Ende-->
-</div>
 </div>
