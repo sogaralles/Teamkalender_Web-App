@@ -94,14 +94,16 @@ body {
 #header {
   border-width: 0px;
   position: absolute;
-  left: 558px;
-  top: 55px;
+  left: 579px;
+  top: 3px;
   width: 261px;
   height: 37px;
   display: flex;
   font-family: "Arial Fett", "Arial Standard", "Arial", sans-serif;
   font-weight: 700;
   font-style: normal;
+  font-size: 28px;
+  
 }
 
 #create {
@@ -167,8 +169,8 @@ body {
 
 #date_input {
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left:120px;
+  top: -10px;
   width: 300px;
   height: 25px;
   padding: 2px 2px 2px 2px;
