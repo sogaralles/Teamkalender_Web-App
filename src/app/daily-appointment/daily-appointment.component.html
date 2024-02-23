@@ -10,36 +10,27 @@
 
     <div id="base" class="">
 
-        <div id="header" class="ax_default heading_1">
+        <div id="header">
             <span>Tägliche Termine</span>
         </div>
 
-        <div id="u84" class="ax_default button">
-            <!--<div id="create_div" class=""></div>-->
-            <div id="u84_div" class=""></div>
-            <div id="u84_text" class="text ">
-                <button class="button" routerLink="/create-appointment" [queryParams]="{ date: dateValue }"
-                    routerLinkActive="active">Termin erstellen
-                </button>
-            </div>
+        <div id="createAppointment-buttonPos">
+            <button class="button" routerLink="/create-appointment" [queryParams]="{ date: dateValue }"
+                routerLinkActive="active">Termin erstellen
+            </button>
         </div>
 
-
-
-        <div id="back" class="ax_default button">
-            <div id="back_div" class=""></div>
-            <div id="back_text" class="text ">
-                <button class="button" routerLink="/calender" routerLinkActive="active">zurück
-                </button>
-            </div>
+        <div id="back">
+            <button class="button" routerLink="/calender" routerLinkActive="active">zurück
+            </button>
         </div>
 
-        <div id="date" class="ax_default text_field">
-            <div id="date_div"></div>
-            <p id="date_input" class="date_input" >{{dateValue}}</p>
+        <div id="date">
+            <div id="date_box"></div>
+            <p id="date_text">{{dateValue}}</p>
         </div>
     </div>
-    <script src="resources/scripts/axure/ios.js"></script>
+
 
 </body>
 

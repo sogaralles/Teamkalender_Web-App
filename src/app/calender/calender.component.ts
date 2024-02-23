@@ -35,7 +35,7 @@ export class CalenderComponent implements OnInit {
   }
 
   logout() {
-    this.keycloakService.logout(); 
+    this.keycloakService.logout();
   }
   //generates array of days for each month with necessary empty day fields for the structure
   generateDays(year: number, month: number) {
@@ -137,7 +137,7 @@ export class CalenderComponent implements OnInit {
       return this.events.some((event: any) => {
         if (event.date && event.teamEvent === teamEvent) {
           const eventDateStr = event.date.split(' ')[0];
-          const isCurrentUserEvent = teamEvent === 1 ? this.isCurrentUser(event): true; //show private events only for current user
+          const isCurrentUserEvent = teamEvent === 1 ? this.isCurrentUser(event) : true; //show private events only for current user
           return eventDateStr === dayStr && isCurrentUserEvent;
         }
         return false;
@@ -145,18 +145,10 @@ export class CalenderComponent implements OnInit {
     }
     return false;
   }
-  
+
   isCurrentUser(appointment: any): boolean {
     const currentUsername = this.keycloakService.getUsername();
     return appointment.owner === currentUsername;
   }
 
-  public openpopup() {
-    console.log("isPopupOpen true");
-    this.isPopupOpen = true;
-  }
-  public closepopup() {
-    console.log("isPopupOpen false");
-    this.isPopupOpen = false;
-  }
 }

@@ -31,15 +31,7 @@ export class DailyAppointmentComponent implements OnInit {
     });
     this.initializeHours();
   }
-
-  public openpopup(appointment: any) {
-    appointment.show = true;
-  }
-
-  public closepopup(appointment: any) {
-    appointment.show = false;
-  }
-
+  //format current date to German date syntax
   formatDate(currentDate: Date): string {
     const year = currentDate.getFullYear();
     const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
@@ -47,16 +39,11 @@ export class DailyAppointmentComponent implements OnInit {
     const dayStr = `${date}.${month}.${year}`;
     return dayStr;
   }
-
-  logEvents() {
-    console.log('daily-appointment_Events:', this.events);
-  }
-
+  //get events from backend Database
   getEvents() {
     this.http.get<any>('http://193.197.231.167:3000/events').subscribe(//bwcloud IP
       (response) => {
         this.events = response.data;
-        this.logEvents();
         this.loadAppointmentsForDay();
       },
       (error) => {
@@ -64,15 +51,10 @@ export class DailyAppointmentComponent implements OnInit {
       }
     );
   }
-
+  //filter all appointments from current date
   loadAppointmentsForDay() {
     if (this.events) {
       this.appointments = this.events.filter((appointment: any) => appointment.date === this.selectedDate);
-
-      this.appointments.forEach(appointment => {
-        console.log('startTime:', appointment.startTime);
-        console.log('endTime:', appointment.endTime);
-      });
     } else {
       console.error('No appointments found');
     }
