@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { KeycloakService } from 'keycloak-angular';
-//import { KeycloakAdminClient } from 'keycloak-admin-client';
-import * as KeycloakAdminClient from 'keycloak-admin-client';
-import { CalenderComponent } from '../calender/calender.component';
-import { HomeComponent } from '../home';
+
 
 @Component({
   selector: 'app-create-appointment',
@@ -32,18 +29,15 @@ export class CreateAppointmentComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient, private keycloakService: KeycloakService) {
     this.route.queryParams.subscribe(params => {
       this.dateValue = this.route.snapshot.queryParams['date'] || '';
-      console.log('dateValue', this.dateValue);
     });
     this.ownerValue = this.keycloakService.getUsername();
-    console.log('.ownerValue', this.ownerValue);
     this.generateHours();
   }
 
   ngOnInit(): void {
     this.getUSerInformation();
-    //this.getAllUsers();
   }
-
+  //send post request to backend Database
   sendPostRequest() {
     const postData = {
       date: this.dateValue,
@@ -58,11 +52,11 @@ export class CreateAppointmentComponent implements OnInit {
     };
     this.http.post('http://193.197.231.167:3000/events', postData) //bwcloud IP
       .subscribe((response) => {
-        console.log('succesfull POST request', response);
       }, (error) => {
         console.error('POST request error', error);
       });
   }
+  //format current date to German date syntax
   formatDate(currentDate: Date): string {
     const year = currentDate.getFullYear();
     const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
@@ -71,10 +65,12 @@ export class CreateAppointmentComponent implements OnInit {
     return dayStr;
   }
 
+  //set 1,2 or 3 as low,middle or high priority
   setPriority(priority: number): void {
     this.priorityValue = priority;
   }
 
+  //set values for checkbox
   onCheckboxChange() {
     this.teamEventValue = this.isTeamEvent ? 2 : 1;
   }
@@ -85,17 +81,15 @@ export class CreateAppointmentComponent implements OnInit {
     this.selectedHour = hour;
 
     if (id === 'dropDownStartTime') {
-        this.startTimeValue = this.selectedHour; 
-        this.isDropDownStartTime = !this.isDropDownStartTime; 
-        this.isDropDownEndTime = false; 
-        console.log('Selected start time:', this.startTimeValue);
+      this.startTimeValue = this.selectedHour;
+      this.isDropDownStartTime = !this.isDropDownStartTime;
+      this.isDropDownEndTime = false;
     } else if (id === 'dropDownEndTime') {
-        this.endTimeValue = this.selectedHour; 
-        this.isDropDownEndTime = !this.isDropDownEndTime; 
-        this.isDropDownStartTime = false; 
-        console.log('Selected end time:', this.endTimeValue);
+      this.endTimeValue = this.selectedHour;
+      this.isDropDownEndTime = !this.isDropDownEndTime;
+      this.isDropDownStartTime = false;
     }
-}
+  }
 
   stopPropagation(event: Event) {
     event.stopPropagation();
@@ -111,31 +105,7 @@ export class CreateAppointmentComponent implements OnInit {
   //gives all informations of current user back
   getUSerInformation() {
     this.keycloakService.loadUserProfile().then(profile => {
-      console.log('Benutzerprofil:', profile);
     });
   }
 
-  /* keycloakAdmin = new KeycloakAdminClient({
-     baseUrl: 'http://localhost:8080/auth/',
-     realmName: 'teamkalender-realm',
-     clientId: 'teamkalender_client',
-     clientSecret: '823db38f-f69a-4627-99be-79d5625eb79c',
-   });
- 
-   async getAllUsers() {
-     try {
-       await this.keycloakAdmin.auth({
-         username: 'admin1',
-         password: 'admin1',
-       });
-       const users = await this.keycloakAdmin.users.find();
-     console.log('Alle Benutzer:', users);
-     return users;
-   } catch (error) {
-     console.error('Fehler beim Abrufen der Benutzer:', error);
-     throw error;
-   } finally {
-     await this.keycloakAdmin.deauth();
-   }
- }*/
 }
