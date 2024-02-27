@@ -10,8 +10,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [KeycloakGuard] },
-  { path: 'account/login', component: LoginComponent },
-  { path: 'account/register', component: RegisterComponent },
   { path: 'daily-appointment', component: DailyAppointmentComponent, canActivate: [KeycloakGuard] },
   { path: 'create-appointment', component: CreateAppointmentComponent, canActivate: [KeycloakGuard] },
   { path: 'calender', component: CalenderComponent, canActivate: [KeycloakGuard] },

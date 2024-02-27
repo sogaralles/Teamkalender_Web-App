@@ -54,11 +54,11 @@
         <div class="calendar-days">
             <ng-container *ngFor="let chunk of chunkedDays; let i = index">
                 <div class="calendar-row">
-                    <div class="week-numbers">{{ getWeekNumbers(currentYear, currentMonth)[i] }}</div>
+                    <div class="week-numbers">{{ [i + 1] }}</div>
                     <button *ngFor="let day of chunk" class="calendar-day"
                         [routerLink]="day ? ['/daily-appointment', day] : null" (click)="day ? onDayClick(day) : null"
                         [ngClass]="{ 'has-events': hasEventsOnDay(day,1) || hasEventsOnDay(day,2), 'public-border':hasEventsOnDay(day,2), 'private-border':hasEventsOnDay(day,1)}">
-                        {{ day ? (day | date: 'dd') : '' }}
+                        {{ (day | date: 'dd') }}
                     </button>
                 </div>
             </ng-container>

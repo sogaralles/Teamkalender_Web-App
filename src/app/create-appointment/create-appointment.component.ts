@@ -77,28 +77,31 @@ export class CreateAppointmentComponent implements OnInit {
 
 
   //shows Dropdown Menu for the Start Time or the End Time
-  toggleDropDown(id: string, hour: string) {
+  toggleDropDown(dropDownMenu: string, hour: string) {
     this.selectedHour = hour;
 
-    if (id === 'dropDownStartTime') {
+    if (dropDownMenu === 'dropDownStartTime') {
       this.startTimeValue = this.selectedHour;
       this.isDropDownStartTime = !this.isDropDownStartTime;
       this.isDropDownEndTime = false;
-    } else if (id === 'dropDownEndTime') {
+    } else if (dropDownMenu === 'dropDownEndTime') {
       this.endTimeValue = this.selectedHour;
       this.isDropDownEndTime = !this.isDropDownEndTime;
       this.isDropDownStartTime = false;
     }
   }
 
-  stopPropagation(event: Event) {
-    event.stopPropagation();
-  }
+
 
   //Generates all hours for drop down menu
   generateHours() {
     for (let hour = 0; hour <= 24; hour++) {
-      this.hours.push((hour < 10 ? "0" : "") + hour + ":00");
+      if (hour < 10){
+        this.hours.push(("0")+ hour + ":00");
+      }
+      else {
+        this.hours.push(hour + ":00");
+      }
     }
   }
 

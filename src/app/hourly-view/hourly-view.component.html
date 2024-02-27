@@ -6,7 +6,7 @@
           <div class="hour-row"
             *ngIf="(column === 0 && i < hours.length / 2) || (column === 1 && i >= hours.length / 2)">
             <div class="hour">
-              <p><span>{{ hour }}</span></p>
+              <p>{{ hour }}</p>
             </div>
             <div class="appointment" *ngFor="let appointment of appointments">
               <span

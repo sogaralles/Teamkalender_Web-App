@@ -44,7 +44,7 @@ export class HourlyViewComponent implements OnInit {
     } else if (teamEvent === 2) {
       classes += ' public-border';
     }
-    return classes.trim();
+    return classes;
   }
   //returns marked hours of appointments
   isHourMarked(appointment: any, hour: string): boolean {

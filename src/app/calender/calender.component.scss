@@ -29,11 +29,13 @@ body {
   border-bottom: 1px solid #ccc;
   position: relative;
   top: 50px;
-  width: calc(100%);
 }
 
 .week-labels>div:first-child {
-  flex: 28.8px 0 0;
+  width: 28.8px;
+  min-width: 28.8px;
+  max-width: 28.8px;
+  //flex: 28.8px 0 0;
   padding: 24px;
   border-right: none;
 }

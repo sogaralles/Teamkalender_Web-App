@@ -13,29 +13,25 @@
         </div>
 
         <div id="dateInput-boxPos">
-            <div id="dateInput-box" class=""></div>
+            <div id="dateInput-box"></div>
             <input id="dateInput" type="text" [(ngModel)]="dateValue" placeholder="Datum" />
         </div>
 
         <div id="startDropDown">
-            <div id="startDropDown-pos" class=""></div>
+            <div id="startDropDown-pos"></div>
             <button id="startDropDown-input" (click)="toggleDropDown('dropDownStartTime', selectedHour)"
-                placeholder="Beginn" class="dropDownMenu1">{{ startTimeValue ? startTimeValue : 'Bitte Start Uhrzeit
-                auswählen' }}</button>
-            <div id="dropDownStartTime" [ngClass]="{'dropDown-content1': true, 'show': isDropDownStartTime}"
-                (click)="stopPropagation($event)">
+                class="dropDownMenu1">{{ startTimeValue ? startTimeValue : 'Terminbeginn festlegen' }}</button>
+            <div id="dropDownStartTime" [ngClass]="{'dropDown-content1': true, 'show': isDropDownStartTime}">
                 <a *ngFor="let hour of hours" (click)="toggleDropDown('dropDownStartTime', hour)" class="hour-option">{{
                     hour }}</a>
             </div>
         </div>
 
         <div id="endDropDown">
-            <div id="endDropDown-pos" class=""></div>
-            <button id="endDropDown-input" (click)="toggleDropDown('dropDownEndTime', selectedHour)" placeholder="Ende"
-                class="dropDownMenu2">{{ endTimeValue ? endTimeValue : 'Bitte Ende Uhrzeit auswählen' }}</button>
-            <!--[(ngModel)]="endTimeValue" placeholder="Ende"-->
-            <div id="dropDownEndTime" [ngClass]="{'dropDown-content2': true, 'show': isDropDownEndTime}"
-                (click)="stopPropagation($event)">
+            <div id="endDropDown-pos"></div>
+            <button id="endDropDown-input" (click)="toggleDropDown('dropDownEndTime', selectedHour)"
+                class="dropDownMenu2">{{ endTimeValue ? endTimeValue : 'Terminende festlegen' }}</button>
+            <div id="dropDownEndTime" [ngClass]="{'dropDown-content2': true, 'show': isDropDownEndTime}">
                 <a *ngFor="let hour of hours" (click)="toggleDropDown('dropDownEndTime', hour)" class="hour-option">{{
                     hour }}</a>
             </div>

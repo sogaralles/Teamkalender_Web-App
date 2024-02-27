@@ -14,7 +14,7 @@ export class CalenderComponent implements OnInit {
 
   isPopupOpen: boolean = false;
   days: (Date | null)[] = [];
-  weekNumbers: number[] = [];
+  //weekNumbers: number[] = [];
   currentYear: number;
   currentMonth: number;
   monthNames: string[] = [
@@ -41,12 +41,13 @@ export class CalenderComponent implements OnInit {
   generateDays(year: number, month: number) {
     const daysInMonth = new Date(year, month, 0).getDate();
     const firstDayOfMonth = new Date(year, month - 1, 1).getDay();
-    const offset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // offset for the first day, first day is a Sunday if firstDayOfMonth is 0
-
+    const offset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // offset for the first week until the first day of the month is reached, first day is a Sunday if firstDayOfMonth is 0
+    const daysToReachSunday = daysInMonth + (7 - ((daysInMonth + offset) % 7));// Total days until the next Sunday after the current month days is reached
     this.days = [];
-    for (let i = 1 - offset; i <= daysInMonth + (7 - ((daysInMonth + offset) % 7)); i++) {
+
+    for (let i = 1 - offset; i <= daysToReachSunday; i++) {
       if (i <= 0 || i > daysInMonth) {
-        this.days.push(null); // push empty day fields for the previous and next week
+        this.days.push(null); // push empty day fields for the first and last week of the month
       } else {
         this.days.push(new Date(year, month - 1, i));
       }
@@ -54,12 +55,10 @@ export class CalenderComponent implements OnInit {
 
     const lastWeek = this.days.slice(-7); //creates a new Array with the last 7 elements of this.days
     const lastWeekHasData = lastWeek.some(day => day !== null); // checks if at least one day isn't empty
-
     if (!lastWeekHasData) {
       this.days = this.days.slice(0, -7); // remove last week if it's empty
     }
 
-    this.weekNumbers = this.getWeekNumbers(year, month);
   }
   //groups days of months into weekly chunks 
   get chunkedDays(): (Date | null)[][] {
@@ -67,7 +66,8 @@ export class CalenderComponent implements OnInit {
     const arrayCopy = this.days.slice();
     const chunks = [];
     while (arrayCopy.length > 0) {
-      chunks.push(arrayCopy.splice(0, chunkSize)); //removes chunkSize from index 0 
+      const chunk = arrayCopy.splice(0, chunkSize); //removes chunkSize from index 0 
+      chunks.push(chunk); 
     }
     return chunks;
   }
@@ -89,30 +89,13 @@ export class CalenderComponent implements OnInit {
     }
     this.generateDays(this.currentYear, this.currentMonth);
   }
-  //by click on day of month navigate to daily-appointment
+  //by click on day of month navigate to daily-appointment with the date as ISOString
   onDayClick(day: Date) {
     if (day instanceof Date) {
       this.router.navigate(['/daily-appointment'], { queryParams: { date: day.toISOString() } });
     }
   }
-  //generates week numbers for each week of each month
-  getWeekNumbers(year: number, month: number): number[] {
-    const daysInMonth = new Date(year, month, 0).getDate();
-    let weekNumber = 1;
-    const weekNumbers: number[] = [];
 
-    for (let i = 1; i <= daysInMonth; i++) {
-      const currentDate = new Date(year, month - 1, i);
-      const currentDay = currentDate.getDay();
-
-      if (currentDay === 0 || i === 1 || (i === daysInMonth && currentDay !== 0)) {
-        weekNumbers.push(weekNumber);
-        weekNumber++;
-      }
-    }
-
-    return weekNumbers;
-  }
   //get evenets from backend database
   getEvents() {
     this.http.get<any>('http://193.197.231.167:3000/events').subscribe(//bwcloud IP
@@ -136,11 +119,21 @@ export class CalenderComponent implements OnInit {
 
       return this.events.some((event: any) => {
         if (event.date && event.teamEvent === teamEvent) {
-          const eventDateStr = event.date.split(' ')[0];
-          const isCurrentUserEvent = teamEvent === 1 ? this.isCurrentUser(event) : true; //show private events only for current user
-          return eventDateStr === dayStr && isCurrentUserEvent;
+          let isCurrentUserEvent: boolean;
+          if (teamEvent === 1) {
+              isCurrentUserEvent = this.isCurrentUser(event);
+          } else {
+              isCurrentUserEvent = true;
+          }
+          return event.date === dayStr && isCurrentUserEvent;
         }
         return false;
+        /*return this.events.some((event: any) => {
+          if (event.date && event.teamEvent === teamEvent) {
+            const isCurrentUserEvent = teamEvent === 1 ? this.isCurrentUser(event) : true; //show private events only for current user
+            return event.date === dayStr && isCurrentUserEvent;
+          }
+          return false;*/
       });
     }
     return false;

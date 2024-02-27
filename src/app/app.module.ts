@@ -29,9 +29,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
         clientId: 'teamkalender_client' //bwcloud
       },
       initOptions: {
-        //onLoad: 'check-sso',
-        //silentCheckSsoRedirectUri:
-        //  window.location.origin + '/assets/silent-check-sso.html', 
         //redirectUri: 'http://193.197.231.167:4200',//bwcloud
         redirectUri: 'http://localhost:4200',
         checkLoginIframe: false //bwcloud

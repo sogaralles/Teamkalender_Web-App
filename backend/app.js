@@ -18,8 +18,10 @@ db.serialize(() => {
 
 app.use(bodyParser.json());
 app.use(cors());
-
+//receice event deatils
 app.post('/events', (req, res) => {
+
+    //get request body
     const { date, teamEvent, startTime, endTime, priority, matter, comment, owner } = req.body;
 
     
@@ -37,11 +39,11 @@ app.post('/events', (req, res) => {
             return res.status(500).json({ status: 500, success: false, error: err.message });
         }
 
-        console.log('Successful input',  date, teamEvent, startTime, endTime, priority, matter, comment, owner);
+        //Successfull input
         res.status(200).json({ status: 200, success: true });
     });
 });
-
+//send requested events
 app.get('/events', (req, res) => {
     const sql = "SELECT * FROM events";
 
@@ -49,7 +51,7 @@ app.get('/events', (req, res) => {
         if (err) {
             return res.status(500).json({ status: 500, success: false, error: err.message });
         }
-
+        //Successfull output
         res.status(200).json({ status: 200, success: true, data: rows });
     });
 });
