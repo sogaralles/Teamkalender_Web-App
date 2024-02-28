@@ -50,7 +50,7 @@ export class CreateAppointmentComponent implements OnInit {
       owner: this.ownerValue
 
     };
-    this.http.post('http://193.197.231.167:3000/events', postData) //bwcloud IP
+    this.http.post('http://193.197.231.167:3000/events', postData) //bwcloud IP can be changed
       .subscribe((response) => {
       }, (error) => {
         console.error('POST request error', error);

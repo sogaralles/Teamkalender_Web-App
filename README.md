@@ -1,5 +1,13 @@
 # TeamKalender
 
+##Achtung Server IP muss im Code vorab angepasst werden! markiert durch //bwcloud IP can be changed
+app.module.ts -> url + redirectUri
+calender.component.ts -> GET Request
+create-appointment.ts -> POST Request
+daily-appointment.component.ts -> GET Request
+home.component.ts -> GET Request
+Für genauere Details siehe Dokumentation Kapitel Inbetriebnahme.
+
 ## Node v16.14.2 installieren
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash

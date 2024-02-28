@@ -41,7 +41,7 @@ export class DailyAppointmentComponent implements OnInit {
   }
   //get events from backend Database
   getEvents() {
-    this.http.get<any>('http://193.197.231.167:3000/events').subscribe(//bwcloud IP
+    this.http.get<any>('http://193.197.231.167:3000/events').subscribe(//bwcloud IP can be changed
       (response) => {
         this.events = response.data;
         this.loadAppointmentsForDay();
