@@ -9,6 +9,20 @@ body {
   text-align: left;
 }
 
+.img1{
+  margin-top: 30px;
+  margin-left: -150px;
+  height: 300px;
+  width: 420px;
+}
+
+.img2{
+  margin-top: 30px;
+  margin-right: -130px;
+  height: 300px;
+  width: 420px;
+}
+
 .button {
   text-align: center;
   height: 36px;
@@ -29,10 +43,12 @@ body {
 #viewCalender-box {
   border-width: 0px;
   position: absolute;
-  left: 0px;
+  margin-left: 0px;
+  margin-top: -20px;
+  //left: 0px;
   top: 0px;
-  width: 339px;
-  height: 232px;
+  width: 539px;
+  height: 582px;
   background: inherit;
   background-color: rgba(255, 255, 255, 1);
   box-sizing: border-box;
@@ -58,10 +74,12 @@ body {
 #createAppointment-box {
   border-width: 0px;
   position: absolute;
-  left: 0px;
+  margin-left: -200px;
+  margin-top: -20px;
+  //left: 0px;
   top: 0px;
-  width: 339px;
-  height: 232px;
+  width: 539px;
+  height: 582px;
   background: inherit;
   background-color: rgba(255, 255, 255, 1);
   box-sizing: border-box;
@@ -100,8 +118,8 @@ body {
 #createAppointment-buttonPos {
   border-width: 0px;
   position: absolute;
-  left: 279px;
-  top: 307px;
+  left: 179px;
+  top: 607px;
   width: 140px;
   height: 40px;
   display: flex;
@@ -110,8 +128,8 @@ body {
 #viewCalender-buttonPos {
   border-width: 0px;
   position: absolute;
-  left: 715px;
-  top: 307px;
+  left: 815px;
+  top: 607px;
   width: 140px;
   height: 40px;
   display: flex;
@@ -146,12 +164,19 @@ body {
   height: 150px;
   display: flex;
 }
+#createAppointment-description{
+  margin-left: -200px;
+}
+
+#viewCalender-description{
+  margin-right: -200px;
+}
 
 #todaysAppointment-box {
   border-width: 0px;
   position: absolute;
   left: 0px;
-  top: 0px;
+  top: 400px;
   width: 1139px;
   height: 732px;
   background: inherit;
@@ -180,7 +205,7 @@ body {
   border-width: 0px;
   position: absolute;
   left: -169px;
-  top: 279px;
+  top: 679px;
   width: 300px;
   height: 150px;
   display: flex;
@@ -189,7 +214,7 @@ body {
 #todaysAppointment-headerTextPos {
   position: absolute;
   left: 5px;
-  top: -10px;
+  top: 390px;
   width: 300px;
   height: 25px;
   padding: 2px 2px 2px 2px;
@@ -210,7 +235,7 @@ body {
   border-width: 0px;
   position: absolute;
   left: 0px;
-  top: 0px;
+  top: 400px;
   width: 300px;
   height: 25px;
   background: inherit;

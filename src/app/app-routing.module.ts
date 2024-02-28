@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home';
-import { LoginComponent, RegisterComponent } from './account';
 import { DailyAppointmentComponent } from './daily-appointment/daily-appointment.component';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { CalenderComponent } from './calender/calender.component';

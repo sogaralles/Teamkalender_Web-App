@@ -1,15 +1,12 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BodyComponent } from './body/body.component';
-import { LoginComponent } from './account/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CalenderComponent } from './calender/calender.component';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { DailyAppointmentComponent } from './daily-appointment/daily-appointment.component';
-import { RegisterComponent } from './account/register/register.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,15 +22,15 @@ function initializeKeycloak(keycloak: KeycloakService) {
       config: {
         url: 'http://localhost:8080/auth',
         //url: 'http://193.197.231.167:8080/auth', //bwcloud
-        realm: 'teamkalender-realm', //bwcloud
-        clientId: 'teamkalender_client' //bwcloud
+        realm: 'teamkalender-realm', 
+        clientId: 'teamkalender_client' 
       },
       initOptions: {
         //redirectUri: 'http://193.197.231.167:4200',//bwcloud
         redirectUri: 'http://localhost:4200',
-        checkLoginIframe: false //bwcloud
+        checkLoginIframe: false 
       },
-      loadUserProfileAtStartUp: true //bwcloud
+      loadUserProfileAtStartUp: true 
     });
 }
 
@@ -42,12 +39,10 @@ function initializeKeycloak(keycloak: KeycloakService) {
   declarations: [
     AppComponent,
     BodyComponent,
-    LoginComponent,
     HomeComponent,
     CalenderComponent,
     CreateAppointmentComponent,
     DailyAppointmentComponent,
-    RegisterComponent,
     HourlyViewComponent,
   ],
   imports: [
