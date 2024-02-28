@@ -2,7 +2,6 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BodyComponent } from './body/body.component';
 import { HomeComponent } from './home/home.component';
 import { CalenderComponent } from './calender/calender.component';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
@@ -27,7 +26,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
       },
       initOptions: {
         //redirectUri: 'http://193.197.231.167:4200',//bwcloud
-        redirectUri: 'http://localhost:4200',
+        redirectUri: 'http://localhost:4200', 
         checkLoginIframe: false 
       },
       loadUserProfileAtStartUp: true 
@@ -38,7 +37,6 @@ function initializeKeycloak(keycloak: KeycloakService) {
 @NgModule({
   declarations: [
     AppComponent,
-    BodyComponent,
     HomeComponent,
     CalenderComponent,
     CreateAppointmentComponent,
