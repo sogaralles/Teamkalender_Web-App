@@ -7,15 +7,7 @@ import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
 @Injectable({
   providedIn: 'root'
 })
-/*export class KeycloakGuard implements CanActivate {
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
-  }
-
-}*/
 
 //export class AuthGuard extends KeycloakAuthGuard {
   export class KeycloakGuard extends KeycloakAuthGuard {

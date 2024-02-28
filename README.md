@@ -1,27 +1,73 @@
 # TeamKalender
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+## Node v16.14.2 installieren
 
-## Development server
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install 16.14.2
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+npm install express
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##Docker 24.0.7 installieren
+Sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755-d /etc/apt/keyrings
 
-## Build
+sudo curl -fsSL
+https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+echo\
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release &&echo"$VERSION_CODENAME") stable"|\
+sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+VERSION_STRING=5:24.0.7-1~ubuntu.20.04~focal
+sudo apt-get install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+##Agular CLI 14 installieren
+npm install -g @angular/cli@14
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+##Frontend Docker-image bauen
+docker build -t <imageName> .
+docker run -d -p 4200:80 <imageName>
 
-## Further help
+##Keycloak starten
+cd Teamkalender/keycloak/
+sudo docker-compose up -d
+docker ps -a
+docker exec -it {contaierID} bash
+cd /opt/jboss/keycloak/bin
+./kcadm.sh config credentials --server http://<ServerIP>:8080/auth --realm master --user admin1
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Passwort: admin1
+
+./kcadm.sh update realms/master -s sslRequired=NONE
+
+Im Browser auf der Administrationsoberflaeche unter '<ServerIP>:8080' anmelden mit:
+Benutzer: admin1
+Passwort: admin1
+
+importiere über Select Realm das im keycloakRealm Ordner liegende Realm
+Wichtig! 
+Name: teamkalender-realm
+enabled: on
+
+Wieder zurueck zum virtuellen Server, immernoch im Docker Container:
+./kcadm.sh update realms/teamkalender-realm -s sslRequired=NONE
+
+exit
+
+## Backend im Hintergrund starten
+cd ..
+cd backend/
+node app.js &
+
+
+Nun kann im Browser das Frontend ueber 'http://<ServerIP>:4200' aufgerufen werden.
+
+
+
+
