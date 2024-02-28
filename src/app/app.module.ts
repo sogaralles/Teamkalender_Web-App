@@ -19,14 +19,14 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8080/auth',
-        //url: 'http://193.197.231.167:8080/auth', //bwcloud
+        //url: 'http://localhost:8080/auth',
+        url: 'http://193.197.231.167:8080/auth', //bwcloud
         realm: 'teamkalender-realm', 
         clientId: 'teamkalender_client' 
       },
       initOptions: {
-        //redirectUri: 'http://193.197.231.167:4200',//bwcloud
-        redirectUri: 'http://localhost:4200', 
+        redirectUri: 'http://193.197.231.167:4200',//bwcloud
+        //redirectUri: 'http://localhost:4200', 
         checkLoginIframe: false 
       },
       loadUserProfileAtStartUp: true 
