@@ -45,8 +45,8 @@ docker run -d -p 4200:80 <imageName>
 ##Keycloak starten
 cd Teamkalender/keycloak/
 sudo docker-compose up -d
-docker ps -a
-docker exec -it {contaierID} bash
+docker ps
+sudo docker exec -it {contaierID} bash
 cd /opt/jboss/keycloak/bin
 ./kcadm.sh config credentials --server http://<ServerIP>:8080/auth --realm master --user admin1
 
@@ -62,6 +62,7 @@ importiere über Select Realm das im keycloakRealm Ordner liegende Realm
 Wichtig! 
 Name: teamkalender-realm
 enabled: on
+Realm Settings -> Login -> User registration: on
 
 Wieder zurueck zum virtuellen Server, immernoch im Docker Container:
 ./kcadm.sh update realms/teamkalender-realm -s sslRequired=NONE
@@ -74,7 +75,7 @@ cd backend/
 node app.js &
 
 
-Nun kann im Browser das Frontend ueber 'http://<ServerIP>:4200' aufgerufen werden.
+Nun kann im Browser das Frontend ueber '<ServerIP>:4200' aufgerufen werden und sich registriert werden.
 
 
 
